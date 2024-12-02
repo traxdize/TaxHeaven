@@ -4,7 +4,7 @@
 # name of the character.
 
 define j = Character('Joko', color="#c000fb")
-define amanda = Character('Amanda Kartikasari', color="#eeff00")
+define a = Character('Amanda Kartikasari', color="#eeff00")
 define seller = Character('Kang Gorengan', color="#ffffff")
 define center = Position(xalign=0.5, yalign=0.5)
 define left = Position(xalign=0.1, yalign=0.5)
@@ -78,5 +78,7 @@ label cutscene2:
     with dissolve
 
     j "Hei lihat yang aku temukan."
+
+
 
     return
