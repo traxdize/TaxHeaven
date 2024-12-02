@@ -56,12 +56,27 @@ label cutscene2:
     show kang gorengan at center
     with dissolve
 
-    joko "Bang minta tahu gorengnya 5 biji ya"
+    j "Bang minta tahu gorengnya 5 biji ya"
     seller "Siapp mas!🫡"
 
     # show cg bungkus gorengan
     
-    
+    j "Hmmm, ada yang aneh dengan kertas gorengan ini..."
 
+    "Coba kita lihat, transfer sebesar Rp3.5 miliar kepada perusahaan (placeholder) dari ketua departemen keuangan. Kok nominalnya tidak asing ya?"
+
+    "Sepertinya aku harus simpan kertas ini dan menanyakan ini ke Amanda."
+
+    ## MASUK WARUNG SUNDA
+
+    scene bg warung sunda
+    with dissolve
+
+    "Siang ini aku makan dengan salah satu temanku."
+
+    show amanda
+    with dissolve
+
+    j "Hei lihat yang aku temukan."
 
     return
