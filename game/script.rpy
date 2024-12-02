@@ -74,11 +74,14 @@ label cutscene2:
 
     "Siang ini aku makan dengan salah satu temanku."
 
-    show amanda
-    with dissolve
+    show amanda with dissolve
 
     j "Hei lihat yang aku temukan."
+    
+    a "Hah apaan lagi ini,"
 
+    show Amanda-ketawa
 
+    a "kamu main detektif-detektifan lagi?"
 
     return
