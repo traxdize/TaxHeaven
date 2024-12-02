@@ -1,0 +1,28 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While compiling python block starting at line 17 of game/options.rpy.
+TypeError: eval() arg 1 must be a string, bytes or code object
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "C:\Michael\Kuliah\Tingkat 2\renpy-8.3.2-sdk\renpy\bootstrap.py", line 359, in bootstrap
+    renpy.main.main()
+  File "C:\Michael\Kuliah\Tingkat 2\renpy-8.3.2-sdk\renpy\main.py", line 470, in main
+    renpy.game.script.load_script() # sets renpy.game.script.
+  File "C:\Michael\Kuliah\Tingkat 2\renpy-8.3.2-sdk\renpy\script.py", line 359, in load_script
+    self.load_appropriate_file(".rpyc", [ "_ren.py", ".rpy" ], dir, fn, initcode)
+  File "C:\Michael\Kuliah\Tingkat 2\renpy-8.3.2-sdk\renpy\script.py", line 957, in load_appropriate_file
+    self.finish_load(stmts, initcode, filename=lastfn) # type: ignore
+  File "C:\Michael\Kuliah\Tingkat 2\renpy-8.3.2-sdk\renpy\script.py", line 602, in finish_load
+    node.early_execute()
+  File "C:\Michael\Kuliah\Tingkat 2\renpy-8.3.2-sdk\renpy\ast.py", line 2215, in early_execute
+    value = renpy.python.py_eval_bytecode(self.code.bytecode)
+  File "C:\Michael\Kuliah\Tingkat 2\renpy-8.3.2-sdk\renpy\python.py", line 1202, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+TypeError: eval() arg 1 must be a string, bytes or code object
+
+Windows-10-10.0.22631 AMD64
+Ren'Py 8.3.2.24090902
+ 
+Tue Nov 26 17:00:59 2024
