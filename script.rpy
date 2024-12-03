@@ -200,7 +200,7 @@ label start:
     
     joko "Hmmm, ada yang aneh dengan kertas gorengan ini..."
 
-    "Coba kita lihat, transfer sebesar Rp3.5 miliar kepada perusahaan {b}Metecom{/b} dari ketua departemen keuangan{cps=5}... Kok nominalnya tidak asing ya?"
+    "Coba kita lihat, transfer sebesar Rp3.5 miliar kepada perusahaan {b}Metecom{/b} dari ketua departemen keuangan{cps=5}...{cps=40} Kok nominalnya tidak asing ya?"
 
     "Sepertinya aku harus simpan kertas ini dan menanyakan ini ke Amanda saat di warung nanti."
 
