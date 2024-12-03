@@ -148,16 +148,16 @@ label cutscene2:
 
     ## INFILTRASI
 
-    # scene bg cari jalan
+    scene bg cari jalan with dissolve
 
-    scene bg kota ## placeholder
+    scene bg kota with dissolve
 
     "Hmmm, aku harus mencari jalur yang aman untuk infiltrasi gedung ini..."
     "Lewat mana yak?"
 
     # scene bg pintujendela
 
-    scene bg pintujendela ## placeholder
+    scene bg pintujendela with dissolve
 
     "AHA! Itu dia, hmm aku bisa masuk dari jendela atau dari pintu ini..."
     menu:
@@ -169,17 +169,15 @@ label cutscene2:
             jump choicemasuk_jendela
     
 label choicemasuk_pintu:
-    # scene bg koridor
-    scene bg koridor ## placeholder
+    scene bg koridor with dissolve
 
     "Hmmm, sebuah koridor yang lumayan panjang.."
     "Untungnya sepi sih."
 
+    scene bg koridorfootstep with dissolve
     # play music "footsteps.mp3"
     "Waduh, ada langkah kaki"
     "Aku harus sembunyi!"
-
-    # scene bg tworooms
 
     menu:
         "Masuk ke pintu ruangan janitor":
@@ -188,7 +186,7 @@ label choicemasuk_pintu:
             jump choicepintu_nameless
     
     label choicepintu_janitor:
-        # scene bg blackout
+        scene bg blackout with dissolve
         "Phew, harusnya sudah aman."
         "Hmm, aku mendengar seseorang."
 
@@ -203,13 +201,13 @@ label choicemasuk_pintu:
         "Oke, dia sudah pergi"
         "Hmmm, mana saklarnya?"
 
-        # scene bg whiteout
+        scene bg janitor with dissolve
         "Hehe, aku mempunyai ide cemerlang!"
 
         jump pintuconvergent
 
     label choicepintu_nameless:
-        # scene bg blackout
+        scene bg blackout with dissolve
         "Phew, untung aman-aman aja."
         "Hmm, aku mendengar seseorang."
 
@@ -224,19 +222,22 @@ label choicemasuk_pintu:
         "Oke, dia sudah pergi"
         "Hmmm, mana saklarnya?"
 
-        # scene bg kantor
+        scene bg kantor with dissolve
         "Hehe, aku mempunyai ide bagus!"
 
         jump pintuconvergent
     
     label pintuconvergent:
-        # scene bg lift
+        scene bg lift with dissolve
         "Wah ada lift, hoki"
         
-        # scene bg tombollift
+        scene bg tombollift with dissolve
         "Tadi apa katanya? Lantai 14 ya.."
 
-        # scene bg koridor
+        scene bg lift14 with dissolve
+        "Oke.."
+
+        scene bg lantai14 with dissolve
         "Oke, sekarang yang mana ruangannya?"
 
         # scene bg pintuceo
@@ -255,7 +256,7 @@ label choicemasuk_pintu:
             # scene bg ventilasi
             "Nah, aku bisa menyelipkan HPku di sini dan merekam video!"
 
-            # scene bg blackout
+            scene bg blackout with dissolve
             "Mmhmm, susah juga.."
             
             # scene bg ruangceo
@@ -263,7 +264,7 @@ label choicemasuk_pintu:
             "Sekarang aku harus sembunyi."
             "Wah, ukuran lemari itu pas sekali"
 
-            # scene bg blackout
+            scene bg blackout with dissolve
             "Gelap banget..."
             
             # play music "suarapintu.mp3"
@@ -286,7 +287,7 @@ label choicemasuk_pintu:
             "Wah, sepertinya aku menemukan sesuatu yang penting!"
             "Aku harus menunggu sampai mereka pergi."
 
-            # scene bg blackout
+            scene bg blackout with dissolve
             centered "{color=#ffffff}{cps=10}Setelah beberapa menit"
 
             # scene bg ruangceo
