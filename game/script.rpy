@@ -300,6 +300,39 @@ label choicemasuk_pintu:
 
             # END ACT 1 BAD CLUE
             $ badclue1 = True
+
+        label choicehide_alternate:
+            # scene bg jendelakorden
+            "Nah dari sini sepertinya bisa ngerekam semuanya."
+
+            "Oke belum ada orang, aku harus mencari tempat yang bisa melihat ruangan sebelah."
+
+            # scene bg ruangceogelap with dissolve
+            "Nice, kelihatan semuanya. Sekarang tinggal menunggu mereka datang."
+            # play music "footsteps.mp3"
+            "Nah itu pasti mereka, mana handphoneku.."
+
+            # scene bg uikamera with dissolve
+            show ceo-rokok with dissolve
+
+            ceo "Silahkan masuk pak, silahkan duduk dulu."
+            unk "Terima kasih pak"
+            ceo "Jadi bagaimana persetujuan kita? Jadikah?"
+            unk "Ohh tentu pak, sudah disetujui oleh pak ketua selama bapak memenuhi bagian persetujuan bapak juga."
+
+            hide ceo-rokok
+            show ceo-sombong with dissolve
+            ceo "Ohh iya aman dong, nah sekarang pertanyaannya, siapa yang jadi korbannya?"
+            unk "Aman saja, itu bisa kita atur pak"
+
+            show ceo-ketawa
+            ceo "Hahahaha, baik pak, atur saja!"
+
+            "Wah, sepertinya aku menemukan sesuatu yang penting!"
+            "Aku harus menunggu sampai mereka pergi dan segera pergi dari sini."
+
+            # END ACT 1 GOOD CLUE
+            $ goodclue1 = True
             
 return
 
@@ -312,5 +345,48 @@ label choicemasuk_jendela:
     # play music "footsteps.mp3"
 
     "WADUH AKU HARUS CARI TEMPAT SEMBUNYI!"
+
+    menu:
+        "Sembunyi di bawah meja":
+            jump choicehide_meja
+        "Sembunyi di ruangan sebelah":
+            jump choicehide_papan
+    
+    label choicehide_meja:
+        # scene bg meja with dissolve
+        "Aduduh, kepalaku kejedot.."
+        "Hmm, aku mendengar seseorang.."
+
+        unk "Jadi bagaimana pak? Apakah kita jadi ketemu?"
+        unk "Ohh, baik pak. Lantai 14 kan ruangan bapak?"
+        unk "Saya segera ke sana."
+        jump jendelaconvergent
+
+    label choicehide_papan:
+        # scene bg papan with dissolve
+        "Aduduh, tanganku kegores.."
+        "Hmm, aku mendengar seseorang.."
+
+        unk "Jadi bagaimana pak? Apakah kita jadi ketemu?"
+        unk "Ohh, baik pak. Lantai 14 kan ruangan bapak?"
+        unk "Saya segera ke sana."
+        jump jendelaconvergent
+
+    label jendelaconvergent:
+        "Sepertinya aku baru saja mendengar hal penting."
+        "Transaksi? Lantai 14??"
+        "Baik, aku harus segera ke sana!"
+
+        scene bg emptyroom with dissolve
+        "Oke, ayo keluar dari ruangan ini."
+    
+        scene bg koridor with dissolve
+        "Hmm, bagaimana aku ke lantai 14?"
+
+        scene bg lift with dissolve
+        "{size=10} Aha itu dia {/size}"
+        "Aku bisa menggunakan ini untuk ke lantai 14!"
+
+        # scene bg liftvip with dissolve
 
 return
