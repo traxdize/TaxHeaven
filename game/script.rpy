@@ -3,6 +3,95 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
+##regular taps, medium intervals
+define soundhard = ['audio/A1.ogg', 'audio/A2.ogg', 'audio/A3.ogg', 'audio/A4.ogg', 'audio/A5.ogg']
+
+##light taps, smaller intervals
+define soundsoft = ['audio/B1.ogg', 'audio/B2.ogg', 'audio/B3.ogg', 'audio/B4.ogg', 'audio/B5.ogg']
+
+init python:
+    def type_soundsoft(event, interact=True, **kwargs):
+        if not interact:
+            return
+
+        if event == "show": #if text's being written by character, spam typing soft until the text ends
+            renpy.sound.play(renpy.random.choice(soundsoft))
+            renpy.sound.queue(renpy.random.choice(soundsoft))
+            renpy.sound.queue(renpy.random.choice(soundsoft))
+            renpy.sound.queue(renpy.random.choice(soundsoft))
+            renpy.sound.queue(renpy.random.choice(soundsoft))
+            renpy.sound.queue(renpy.random.choice(soundsoft))
+            renpy.sound.queue(renpy.random.choice(soundsoft))
+            renpy.sound.queue(renpy.random.choice(soundsoft))
+            renpy.sound.queue(renpy.random.choice(soundsoft))
+            renpy.sound.queue(renpy.random.choice(soundsoft))
+            renpy.sound.queue(renpy.random.choice(soundsoft))
+            renpy.sound.queue(renpy.random.choice(soundsoft))
+            renpy.sound.queue(renpy.random.choice(soundsoft))
+            renpy.sound.queue(renpy.random.choice(soundsoft))
+            renpy.sound.queue(renpy.random.choice(soundsoft))
+            renpy.sound.queue(renpy.random.choice(soundsoft))
+            renpy.sound.queue(renpy.random.choice(soundsoft))
+            renpy.sound.queue(renpy.random.choice(soundsoft))
+            renpy.sound.queue(renpy.random.choice(soundsoft))
+            renpy.sound.queue(renpy.random.choice(soundsoft))
+            renpy.sound.queue(renpy.random.choice(soundsoft))
+            renpy.sound.queue(renpy.random.choice(soundsoft))
+            renpy.sound.queue(renpy.random.choice(soundsoft))
+            renpy.sound.queue(renpy.random.choice(soundsoft))
+            renpy.sound.queue(renpy.random.choice(soundsoft))
+            renpy.sound.queue(renpy.random.choice(soundsoft))
+            renpy.sound.queue(renpy.random.choice(soundsoft))
+            renpy.sound.queue(renpy.random.choice(soundsoft))
+            renpy.sound.queue(renpy.random.choice(soundsoft))
+            renpy.sound.queue(renpy.random.choice(soundsoft))
+            renpy.sound.queue(renpy.random.choice(soundsoft))
+            #dumb way to do it but it works, dunno if it causes memory leaks but it's almost 6AM :v
+
+        elif event == "slow_done" or event == "end":
+            renpy.sound.stop()
+
+    def type_soundhard(event, interact=True, **kwargs):
+        if not interact:
+            return
+
+        if event == "show": #if text's being written by character, spam typing hard until the text ends
+            renpy.sound.play(renpy.random.choice(soundhard))
+            renpy.sound.queue(renpy.random.choice(soundhard))
+            renpy.sound.queue(renpy.random.choice(soundhard))
+            renpy.sound.queue(renpy.random.choice(soundhard))
+            renpy.sound.queue(renpy.random.choice(soundhard))
+            renpy.sound.queue(renpy.random.choice(soundhard))
+            renpy.sound.queue(renpy.random.choice(soundhard))
+            renpy.sound.queue(renpy.random.choice(soundhard))
+            renpy.sound.queue(renpy.random.choice(soundhard))
+            renpy.sound.queue(renpy.random.choice(soundhard))
+            renpy.sound.queue(renpy.random.choice(soundhard))
+            renpy.sound.queue(renpy.random.choice(soundhard))
+            renpy.sound.queue(renpy.random.choice(soundhard))
+            renpy.sound.queue(renpy.random.choice(soundhard))
+            renpy.sound.queue(renpy.random.choice(soundhard))
+            renpy.sound.queue(renpy.random.choice(soundhard))
+            renpy.sound.queue(renpy.random.choice(soundhard))
+            renpy.sound.queue(renpy.random.choice(soundhard))
+            renpy.sound.queue(renpy.random.choice(soundhard))
+            renpy.sound.queue(renpy.random.choice(soundhard))
+            renpy.sound.queue(renpy.random.choice(soundhard))
+            renpy.sound.queue(renpy.random.choice(soundhard))
+            renpy.sound.queue(renpy.random.choice(soundhard))
+            renpy.sound.queue(renpy.random.choice(soundhard))
+            renpy.sound.queue(renpy.random.choice(soundhard))
+            renpy.sound.queue(renpy.random.choice(soundhard))
+            renpy.sound.queue(renpy.random.choice(soundhard))
+            renpy.sound.queue(renpy.random.choice(soundhard))
+            renpy.sound.queue(renpy.random.choice(soundhard))
+            renpy.sound.queue(renpy.random.choice(soundhard))
+            renpy.sound.queue(renpy.random.choice(soundhard))
+            #dumb way to do it but it works, dunno if it causes memory leaks but it's almost 6AM :v
+
+        elif event == "slow_done" or event == "end":
+            renpy.sound.stop()
+
 define j = Character('Joko', color="#c000fb")
 define a = Character('Amanda Kartikasari', color="#eeff00")
 define seller = Character('Kang Gorengan', color="#ffffff")
@@ -17,51 +106,98 @@ define center_screen = Position(xalign=0.5, yalign=0.5)
 label start:
     
     stop music
-    play music "type.mp3"
+    play music "type.mp3" loop volume 0.8
 
-    centered "{color=#ffffff}{cps=10}SABTU, 19 NOVEMBER 2023\n{cps=5}BANDUNG\n{cps=2}11:40"
-    
+    centered "{size=40}{cps=10}SABTU, 19 NOVEMBER 2023\n{cps=5}BANDUNG\n{cps=2}11:40"
+
     stop music
-    play music "warung.mp3"
+
+    play music "street.mp3" volume 0.7 loop
 
     scene bg kota
     with dissolve
 
-    "{cps=40}Ah, kota Bandung{cps=10}..."
-    "{cps=40}Menurutku kota ini bagus, ada banyak tempat indah dan banyak potensi."
+    j "Ah, kota Bandung{cps=5}..."
+    "Menurutku kota ini bagus, ada banyak tempat indah dan banyak potensi."
     "Lokasinya yang berada di daerah bukit juga membuat kota ini bisa menjadi tempat wisata."
     "Tetapi ada keganjalan, kota ini selalu begini selama 10 tahun terakhir,"
     "hanya muncul bangunan kantor dan pabrik yang mengotori udara,"
     "wali kota sudah menjanjikan akan mengubahnya, "
     "tetapi selama ini tetap tidak ada apa-apa."
 
-    jump cutscene1
+    scene bg trotoar with dissolve
 
-label cutscene1:
-
-    scene bg trotoar
-    with dissolve
-
-    pause(1)
+    pause(0.2)
     
-    "Semuanya aneh....sangat aneh,"
+    "Semuanya aneh{cps=5}....sangat aneh,"
     "pajak yang besar untuk kota ini,"
     "semua pembuatan bangunan yang menjanjikan kemajuan."
     "Sangat tidak masuk akal."
 
-    jump cutscene2
+    stop music fadeout 3.0
 
-label cutscene2:
+    scene bg gorengan with dissolve
 
-    scene bg gorengan
-    with dissolve
+    play music "<from 3.0 to 54.0>gorengan.mp3" fadein 1.0 volume 0.03 loop
 
-    show kang gorengan at center
-    with dissolve
+    show seller at center with Dissolve(0.6) 
 
     j "Bang minta tahu gorengnya 5 biji ya"
     seller "Siapp mas!🫡"
+    
+    play sound "key item obtained.mp3"
+    scene bg kertas with dissolve
 
+    pause(4)
+
+    "{cps=2}...{cps=15}!!!"
+
+    "{cps=25}Tidak mungkin{cps=5}..."
+
+    stop music fadeout 2.0
+
+    play music "fastrun.mp3" loop volume 1.0
+    play music "<from 22.0 to 94.0>trailer.mp3" fadein 3.0 volume 0.3
+
+    scene bg lari with Dissolve(0.3)
+
+    pause(4)
+
+    scene bg buka with Dissolve(0.3)
+    
+    stop music
+    play music "<from 26.6 to 94.0>trailer.mp3" volume 0.3
+
+    play sound "<from 2.0 to 6.0>doorslam.mp3"
+    pause(2)
+
+    scene bg cek kertas with Fade(0.2, 0.2, 1, color="#FFFFFF")
+
+    "{cps=20}SUDAH KUDUGA {cps=40}!!!"
+    "Ada sesuatu yang berjalan dibelakang kota ini, penyebab kota ini tidak pernah 
+    maju selama 10 tahun, semua ada hubungannya{cps=5}..."
+
+    scene bg cinema with dissolve
+
+    "Semua ada koneksinya, hanya aku yang bisa memecahkan ini, demi kotaku, demi keluargaku{cps=5}..."
+
+    scene bg blackout with fade
+
+    pause(0.5)
+
+    show title at center with Dissolve(3)
+
+    pause(4)
+
+    stop music fadeout 3.0
+    scene bg blackout with Dissolve(2.0)
+    play music "type.mp3" loop volume 0.8
+
+    centered "{color=#ffffff}{size=60}{cps=2}ACT I"
+
+    stop music
+
+    ## ACT 1
     # show cg bungkus gorengan
     
     j "Hmmm, ada yang aneh dengan kertas gorengan ini..."
