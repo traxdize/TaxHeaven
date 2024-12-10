@@ -104,6 +104,37 @@ define right = Position(xalign=0.9, yalign=0.5)
 define center_screen = Position(xalign=0.5, yalign=0.5)
 
 label start:
+
+python:
+    badend = 0
+    name = ""
+    while name != "Joko" and name != "joko" and name != "JOKO" and badend < 5:
+        if badend == 0:
+            name = renpy.input("Input namamu!")
+        elif badend == 1:
+            name = renpy.input("Namanya harus Joko btw")
+        elif badend == 2:
+            name = renpy.input("Namamu Joko!")
+        elif badend == 3:
+            name = renpy.input("NGERTI GA SIH NAMA LU JOKO")
+        else:
+            name = renpy.input("YANG BENER JOKO!!!!!!!")
+        name = name.strip()
+        if name == "Joe":
+            name = renpy.input("WOLOH DARK SYSTEM ITU MAH!")
+        badend += 1
+    
+if badend == 5:
+    $ badend_n = True
+    jump badend_nama
+else:
+    $ badend_n = False
+
+    if badend_n:
+        label badend_nama:
+            show lift_chillguy
+            "DIBILANG NAMA LU JOKO!"
+            return
     
     stop music
     play music "type.mp3" loop volume 0.8
