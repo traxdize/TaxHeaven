@@ -1,0 +1,18 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 444: menu statement expects a non-empty block.
+    menu:
+        ^
+
+File "game/script.rpy", line 446: expected statement.
+    "Jalur kanan":
+                 ^
+
+File "game/script.rpy", line 449: expected statement.
+    "Jalur kiri":
+                ^
+
+Ren'Py Version: Ren'Py 8.3.3.24111502
+Tue Dec 10 19:19:04 2024

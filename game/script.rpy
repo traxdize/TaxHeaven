@@ -186,9 +186,11 @@ label choicemasuk_pintu:
     menu:
         "Masuk ke pintu ruangan janitor":
             play music "pintu.mp3"
+            stop music
             jump choicepintu_janitor
         "Masuk ke pintu ruangan tanpa tulisan":
             play music "pintu.mp3"
+            stop music
             jump choicepintu_nameless
     
     label choicepintu_janitor:
@@ -208,6 +210,7 @@ label choicemasuk_pintu:
         "Hmmm, mana saklarnya?"
 
         play music "lampu.mp3"
+        stop music
 
         scene bg janitor with dissolve
         "Hehe, aku mempunyai ide cemerlang!"
@@ -442,12 +445,12 @@ label choicemasuk_jendela:
         "Sial, sebuah persimpangan. Aku harus lewat mana?"
 
         menu:
-        "Sebaiknya lewat mana?"
-        "Jalur kanan":
-            $ kanan = True
-            jump choicevent_kanan
-        "Jalur kiri":
-            jump choicevent_kiri
+            "Sebaiknya lewat mana?"
+            "Jalur kanan":
+                $ kanan = True
+                jump choicevent_kanan
+            "Jalur kiri":
+                jump choicevent_kiri
 
         label choicevent_kanan:
             # scene bg ventilasi with dissolve
