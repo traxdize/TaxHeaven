@@ -433,12 +433,12 @@ label choicemasuk_jendela:
         "Sial, sebuah persimpangan. Aku harus lewat mana?"
 
         menu:
-        "Sebaiknya lewat mana?"
-        "Jalur kanan":
-            $ kanan = True
-            jump choicevent_kanan
-        "Jalur kiri":
-            jump choicevent_kiri
+            "Sebaiknya lewat mana?"
+            "Jalur kanan":
+                $ kanan = True
+                jump choicevent_kanan
+            "Jalur kiri":
+                jump choicevent_kiri
 
         label choicevent_kanan:
             # scene bg ventilasi with dissolve
