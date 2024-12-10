@@ -66,6 +66,8 @@ label cutscene2:
     
     j "Hmmm, ada yang aneh dengan kertas gorengan ini..."
 
+    # play music "Misteri.mp3"
+
     "Coba kita lihat, transfer sebesar Rp3.5 miliar kepada perusahaan (placeholder) dari ketua departemen keuangan. Kok nominalnya tidak asing ya?"
 
     "Sepertinya aku harus simpan kertas ini dan menanyakan ini ke Amanda."
@@ -165,6 +167,7 @@ label cutscene2:
         "Sebaiknya lewat mana?"
         "Masuk melewati pintu":
             $ pintu = True
+            play music "pintu.mp3"
             jump choicemasuk_pintu
         "Masuk melewati jendela":
             jump choicemasuk_jendela
@@ -176,14 +179,16 @@ label choicemasuk_pintu:
     "Untungnya sepi sih."
 
     scene bg koridorfootstep with dissolve
-    # play music "footsteps.mp3"
+    play music "langkahkaki.mp3"
     "Waduh, ada langkah kaki"
     "Aku harus sembunyi!"
 
     menu:
         "Masuk ke pintu ruangan janitor":
+            play music "pintu.mp3"
             jump choicepintu_janitor
         "Masuk ke pintu ruangan tanpa tulisan":
+            play music "pintu.mp3"
             jump choicepintu_nameless
     
     label choicepintu_janitor:
@@ -198,9 +203,11 @@ label choicemasuk_pintu:
         "Tapi sebelum itu aku harus mencari cara untuk keliling gedung ini dengan aman"
         "Cepatlah pergi!!"
 
-        # play music "footsteps.mp3"
+        play music "langkahkaki.mp3"
         "Oke, dia sudah pergi"
         "Hmmm, mana saklarnya?"
+
+        play music "lampu.mp3"
 
         scene bg janitor with dissolve
         "Hehe, aku mempunyai ide cemerlang!"
@@ -212,6 +219,8 @@ label choicemasuk_pintu:
         "Phew, untung aman-aman aja."
         "Hmm, aku mendengar seseorang."
 
+        play music "telepon.mp3"
+
         unk "Pak untuk transaksinya nanti di ruangan saya yang di lantai 14"
         unk "Baik pak, saya akan segera ke sana setelah telepon ini"
 
@@ -219,7 +228,7 @@ label choicemasuk_pintu:
         "Tapi sebelum itu aku harus mencari cara untuk keliling gedung ini dengan aman"
         "Cepatlah pergi!!"
 
-        # play music "footsteps.mp3"
+        play music "langkahkaki.mp3"
         "Oke, dia sudah pergi"
         "Hmmm, mana saklarnya?"
 
