@@ -98,10 +98,6 @@ define seller = Character('Kang Gorengan', color="#ffffff")
 define chg = Character('NPC')
 define unk = Character('???')
 define ceo = Character('CEO')
-define center = Position(xalign=0.5, yalign=0.5)
-define left = Position(xalign=0.1, yalign=0.5)
-define right = Position(xalign=0.9, yalign=0.5)
-define center_screen = Position(xalign=0.5, yalign=0.5)
 
 label start:
 
@@ -171,7 +167,7 @@ else:
 
     play music "<from 3.0 to 54.0>gorengan.mp3" fadein 1.0 volume 0.03 loop
 
-    show seller at center with Dissolve(0.6) 
+    show kang gorengan at center with Dissolve(0.6) 
 
     j "Bang minta tahu gorengnya 5 biji ya"
     seller "Siapp mas!🫡"
@@ -241,6 +237,8 @@ else:
 
     ## MASUK WARUNG SUNDA
 
+    play music "warungsunda.mp3"
+
     scene bg warung sunda
     with dissolve
 
@@ -299,6 +297,8 @@ else:
     j "Aku harus segera ke tukang gorengan itu!"
     j "Aku harus cari tahu dari mana dia dapat kertas itu!"
 
+    stop music
+
     scene bg trotoar with dissolve
     show kang gorengan
     
@@ -334,7 +334,7 @@ else:
         "Sebaiknya lewat mana?"
         "Masuk melewati pintu":
             $ pintu = True
-            play music "pintu.mp3"
+            play sound "pintu.mp3"
             jump choicemasuk_pintu
         "Masuk melewati jendela":
             jump choicemasuk_jendela
@@ -346,24 +346,25 @@ label choicemasuk_pintu:
     "Untungnya sepi sih."
 
     scene bg koridorfootstep with dissolve
-    play music "langkahkaki.mp3"
+    play sound "langkahkaki.mp3"
     "Waduh, ada langkah kaki"
     "Aku harus sembunyi!"
 
     menu:
         "Masuk ke pintu ruangan janitor":
-            play music "pintu.mp3"
-            stop music
+            play sound "pintu.mp3"
             jump choicepintu_janitor
         "Masuk ke pintu ruangan tanpa tulisan":
-            play music "pintu.mp3"
-            stop music
+            play sound "pintu.mp3"
             jump choicepintu_nameless
     
     label choicepintu_janitor:
         scene bg blackout with dissolve
         "Phew, harusnya sudah aman."
         "Hmm, aku mendengar seseorang."
+        play sound "telepon.mp3"
+
+        $ renpy.pause(8, hard=True)
 
         unk "Pak untuk transaksinya nanti di ruangan saya yang di lantai 14"
         unk "Baik pak, saya akan segera ke sana setelah telepon ini"
@@ -372,12 +373,11 @@ label choicemasuk_pintu:
         "Tapi sebelum itu aku harus mencari cara untuk keliling gedung ini dengan aman"
         "Cepatlah pergi!!"
 
-        play music "langkahkaki.mp3"
+        play sound "langkahkaki.mp3"
         "Oke, dia sudah pergi"
         "Hmmm, mana saklarnya?"
 
-        play music "lampu.mp3"
-        stop music
+        play sound "lampu.mp3"
 
         scene bg janitor with dissolve
         "Hehe, aku mempunyai ide cemerlang!"
@@ -388,8 +388,9 @@ label choicemasuk_pintu:
         scene bg blackout with dissolve
         "Phew, untung aman-aman aja."
         "Hmm, aku mendengar seseorang."
+        play sound "telepon.mp3"
 
-        play music "telepon.mp3"
+        $ renpy.pause(8, hard=True)
 
         unk "Pak untuk transaksinya nanti di ruangan saya yang di lantai 14"
         unk "Baik pak, saya akan segera ke sana setelah telepon ini"
@@ -398,9 +399,10 @@ label choicemasuk_pintu:
         "Tapi sebelum itu aku harus mencari cara untuk keliling gedung ini dengan aman"
         "Cepatlah pergi!!"
 
-        play music "langkahkaki.mp3"
+        play sound "langkahkaki.mp3"
         "Oke, dia sudah pergi"
         "Hmmm, mana saklarnya?"
+        play sound "lampu.mp3"
 
         scene bg kantor with dissolve
         "Hehe, aku mempunyai ide bagus!"
@@ -408,6 +410,7 @@ label choicemasuk_pintu:
         jump pintuconvergent
     
     label pintuconvergent:
+        play sound "lift.mp3"
         scene bg lift with dissolve
         "Wah ada lift, hoki"
         
@@ -428,8 +431,10 @@ label choicemasuk_pintu:
 
         menu:
             "Sembunyi di ventilasi":
+                play sound "Manjat.mp3"
                 jump choicehide_ventilasi
             "Sembunyi di ruangan sebelah":
+                play sound "pintu.mp3"
                 jump choicehide_alternate
 
         label choicehide_ventilasi:
@@ -446,10 +451,9 @@ label choicemasuk_pintu:
 
             scene bg blackout with dissolve
             "Gelap banget..."
-            
-            # play music "suarapintu.mp3"
+            play sound "pintu.mp3"
 
-            show ceo-rokok with dissolve
+            show ceo-rokok
 
             ceo "Silahkan masuk pak, silahkan duduk dulu."
             unk "Terima kasih pak"
@@ -489,7 +493,7 @@ label choicemasuk_pintu:
 
             # scene bg ruangceogelap with dissolve
             "Nice, kelihatan semuanya. Sekarang tinggal menunggu mereka datang."
-            # play music "footsteps.mp3"
+            play sound "langkahkaki.mp3"
             "Nah itu pasti mereka, mana handphoneku.."
 
             # scene bg uikamera with dissolve
@@ -522,21 +526,25 @@ label choicemasuk_jendela:
 
     "Ah, untungnya sebuah ruangan kosong, tapi aku harus segera keluar!"
 
-    # play music "footsteps.mp3"
+    play sound "langkahkaki.mp3"
 
     "WADUH AKU HARUS CARI TEMPAT SEMBUNYI!"
 
     menu:
         "Sembunyi di bawah meja":
+            play sound "hiding.mp3"
             jump choicehide_meja
         "Sembunyi di ruangan sebelah":
+            play sound "hiding.mp3"
             jump choicehide_papan
     
     label choicehide_meja:
         # scene bg meja with dissolve
         "Aduduh, kepalaku kejedot.."
         "Hmm, aku mendengar seseorang.."
+        play sound "telepon.mp3"
 
+        $ renpy.pause(8, hard=True)
         unk "Jadi bagaimana pak? Apakah kita jadi ketemu?"
         unk "Ohh, baik pak. Lantai 14 kan ruangan bapak?"
         unk "Saya segera ke sana."
@@ -546,7 +554,9 @@ label choicemasuk_jendela:
         # scene bg papan with dissolve
         "Aduduh, tanganku kegores.."
         "Hmm, aku mendengar seseorang.."
+        play sound "telepon.mp3"
 
+        $ renpy.pause(8, hard=True)
         unk "Jadi bagaimana pak? Apakah kita jadi ketemu?"
         unk "Ohh, baik pak. Lantai 14 kan ruangan bapak?"
         unk "Saya segera ke sana."
@@ -615,8 +625,10 @@ label choicemasuk_jendela:
             "Sebaiknya lewat mana?"
             "Jalur kanan":
                 $ kanan = True
+                play sound "langkahkaki.mp3"
                 jump choicevent_kanan
             "Jalur kiri":
+                play sound "langkahkaki.mp3"
                 jump choicevent_kiri
 
         label choicevent_kanan:

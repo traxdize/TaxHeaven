@@ -2,13 +2,21 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 129: Line is indented, but the preceding one-line python statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    jump badend_nama
-    ^
+File "game/script.rpy", line 101: expected ':' not found.
+    transform center = Position(xalign=0.5, yalign=0.5)
+                     ^
 
-File "game/script.rpy", line 130: expected statement.
-    else:
-        ^
+File "game/script.rpy", line 102: expected ':' not found.
+    transform left = Position(xalign=0.1, yalign=0.5)
+                   ^
+
+File "game/script.rpy", line 103: expected ':' not found.
+    transform right = Position(xalign=0.9, yalign=0.5)
+                    ^
+
+File "game/script.rpy", line 104: expected ':' not found.
+    transform center_screen = Position(xalign=0.5, yalign=0.5)
+                            ^
 
 Ren'Py Version: Ren'Py 8.3.3.24111502
-Tue Dec 10 23:56:32 2024
+Wed Dec 11 00:43:45 2024
