@@ -6,6 +6,7 @@
 define j = Character('Joko', color="#c000fb")
 define a = Character('Amanda Kartikasari', color="#eeff00")
 define seller = Character('Kang Gorengan', color="#ffffff")
+define chg = Character('NPC')
 define unk = Character('???')
 define ceo = Character('CEO')
 define center = Position(xalign=0.5, yalign=0.5)
@@ -388,5 +389,129 @@ label choicemasuk_jendela:
         "Aku bisa menggunakan ini untuk ke lantai 14!"
 
         # scene bg liftvip with dissolve
+        "Hmmm, butuh keycard.."
+
+        show lift_chillguy with dissolve
+        chg "Permisi yaa.."
+
+        j "Oh iya, maaf ya."
+
+        # scene bg liftkeycard with dissolve
+        j "Oh iya pak, boleh pencet untuk lantai 14 tidak ya?"
+        chg "Ohh boleh.. boleh.."
+
+        "Wah, aku beruntung!"
+
+        scene bg lantai14 with dissolve
+        "Hmm oke, sekarang aku harus mencari ruangan yang dapat melihat transaksi itu."
+
+        # scene bg bukapintu ato mungkin pake sound effect aja
+
+        "Sepertinya terkunci..."
+
+        scene bg lantai14 with dissolve
+        "Ah semua ruangan di sini terkunci, bagaimana ya?"
+
+        # scene bg ventilasi with dissolve
+        "Hmm, bisa di sana."
+
+        "Oke, memang bisa ternyata."
+        "Aku akan lewat sini."
+
+        "Berdebu sekali di sini.."
+        "Apa gak pernah mereka bersihin?"
+        "Okee, sekarang waktuna menunggu mereka naik ke lantai 14."
+
+        # cutscene beberapa menit kemudian
+        scene bg blackout with dissolve
+        centered "{color=#ffffff}{cps=10}Setelah beberapa menit"
+
+        # scene bg koridorjalan with dissolve
+        "Nah itu mereka, sekarang aku harus cari tahu transaksinya di ruangan mana."
+
+        # scene bg persimpangan ventilasi
+        "Sial, sebuah persimpangan. Aku harus lewat mana?"
+
+        menu:
+        "Sebaiknya lewat mana?"
+        "Jalur kanan":
+            $ kanan = True
+            jump choicevent_kanan
+        "Jalur kiri":
+            jump choicevent_kiri
+
+        label choicevent_kanan:
+            # scene bg ventilasi with dissolve
+            "Suaranya membesar..."
+            "Sepertinya aku di jalur yang tepat."
+
+            # scene bg ruangceo with dissolve
+            "Aku pas di atas mereka!"
+            "Aku harus merekam ini."
+
+            scene bg blackout with dissolve
+            "Aduh gelap banget... gak keliatan apa-apa di kamera."
+            "Suaranya masih terdengar sih."
+            "Yasudahlah tidak apa-apa."
+
+            # scene bg ruangceo with dissolve
+            
+            ceo "Jadi bagaimana persetujuan kita? Jadikah?"
+            unk "Ohh tentu pak, sudah disetujui oleh pak ketua selama bapak memenuhi bagian persetujuan bapak juga."
+
+            hide ceo-rokok
+            show ceo-sombong with dissolve
+            ceo "Ohh iya aman dong, nah sekarang pertanyaannya, siapa yang jadi korbannya?"
+            unk "Aman saja, itu bisa kita atur pak"
+
+            show ceo-ketawa
+            ceo "Hahahaha, baik pak, atur saja!"
+
+            "Wah, sepertinya aku menemukan sesuatu yang penting!"
+            "Aku harus menunggu sampai mereka pergi dan segera pergi dari sini."
+
+            # END ACT 1 (BAD CLUE)
+            $ badclue2 = True
+
+        label choicevent_kiri:
+            # scene bg ventilasi with dissolve
+            "Ah, suaranya makin menjauh."
+            "Aku tidak punya pilihan, aku harus turun dari sini!"
+            "Sepertinya aku bisa keluar lewat sini.."
+
+            scene bg blackout with dissolve
+            "Sepertinya ruangan kosong, tapi gelap sekali...."
+
+            # play suarajatuh.mp4
+
+            unk "Suara apa itu?"
+            ceo "Mungkin hanya barang terjatuh?"
+
+            # scene bg meja with dissolve
+
+            "Hampir saja aku ketahuan.."
+            "Hmm, aku bisa melihat ruangan samping dari jendela ini!"
+
+            # scene bg ruangceo with dissolve
+            "Aku harus merekam ini..."
+
+            play music "bisik.mp3"
+
+            ceo "Jadi bagaimana persetujuan kita? Jadikah?"
+            unk "Ohh tentu pak, sudah disetujui oleh pak ketua selama bapak memenuhi bagian persetujuan bapak juga."
+
+            hide ceo-rokok
+            show ceo-sombong with dissolve
+            ceo "Ohh iya aman dong, nah sekarang pertanyaannya, siapa yang jadi korbannya?"
+            unk "Aman saja, itu bisa kita atur pak"
+
+            show ceo-ketawa
+            ceo "Hahahaha, baik pak, atur saja!"
+
+            "Wah, sepertinya aku menemukan sesuatu yang penting!"
+            "Aku harus segera melaporkan ini!"
+
+            # END ACT 1 (GOOD CLUE)
+            $ goodclue2 = True
 
 return
