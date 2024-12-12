@@ -25,21 +25,21 @@ define config.check_conflicting_properties = True
 ## The colors of text in the interface.
 
 ## An accent color used throughout the interface to label and highlight text.
-define gui.accent_color = '#cccc00'
+define gui.accent_color = '#37b061'
 
 ## The color used for a text button when it is neither selected nor hovered.
-define gui.idle_color = '#888888'
+define gui.idle_color = '#5c5c5c'
 
 ## The small color is used for small text, which needs to be brighter/darker to
 ## achieve the same effect.
-define gui.idle_small_color = '#aaaaaa'
+define gui.idle_small_color = '#717171'
 
 ## The color that is used for buttons and bars that are hovered.
-define gui.hover_color = '#e0e066'
+define gui.hover_color = '#37b061'
 
 ## The color used for a text button when it is selected but not focused. A
 ## button is selected if it is the current screen or preference value.
-define gui.selected_color = '#ffffff'
+define gui.selected_color = '#32cba5'
 
 ## The color used for a text button when it cannot be selected.
 define gui.insensitive_color = '#8888887f'
@@ -51,19 +51,19 @@ define gui.hover_muted_color = '#7a7a00'
 
 ## The colors used for dialogue and menu choice text.
 define gui.text_color = '#ffffff'
-define gui.interface_text_color = '#ffffff'
+define gui.interface_text_color = '#424242'
 
 
 ## Fonts and Font Sizes ########################################################
 
 ## The font used for in-game text.
-define gui.text_font = "fonts/GothamMedium.ttf"
+define gui.text_font = "fonts/SourGummy.ttf"
 
 ## The font used for character names.
-define gui.name_text_font = "fonts/GothamBold.otf"
+define gui.name_text_font = "fonts/SourGummy.ttf"
 
 ## The font used for out-of-game text.
-define gui.interface_text_font = "fonts/title.otf"
+define gui.interface_text_font = "fonts/SourGummy.ttf"
 
 ## The size of normal dialogue text.
 define gui.text_size = 25
@@ -81,7 +81,7 @@ define gui.label_text_size = 24
 define gui.notify_text_size = 16
 
 ## The size of the game's title.
-define gui.title_text_size = 65
+define gui.title_text_size = 30
 
 
 ## Main and Game Menus #########################################################

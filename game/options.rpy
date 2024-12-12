@@ -14,7 +14,9 @@
 define config.screen_width = 1280
 define config.screen_height = 720
 
-define config.name = _("{color=#000000}pajk: {color=#ffffff}petualangan {color=#d60909}aneh joko")
+
+define config.name = _("{color=#ffffff}PAJK: {color=#ffffff}Petualangan {color=#d60909}Aneh Joko")
+define config.window_title =  _("PAJK: Petualangan Aneh Joko")
 
 ## Determines if the title given above is shown on the main menu screen. Set
 ## this to False to hide the title.

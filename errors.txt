@@ -2,21 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 101: expected ':' not found.
-    transform center = Position(xalign=0.5, yalign=0.5)
-                     ^
-
-File "game/script.rpy", line 102: expected ':' not found.
-    transform left = Position(xalign=0.1, yalign=0.5)
-                   ^
-
-File "game/script.rpy", line 103: expected ':' not found.
-    transform right = Position(xalign=0.9, yalign=0.5)
-                    ^
-
-File "game/script.rpy", line 104: expected ':' not found.
-    transform center_screen = Position(xalign=0.5, yalign=0.5)
-                            ^
+File "game/screens.rpy", line 288: vbox expects a non-empty block.
+    vbox:
+         ^
 
 Ren'Py Version: Ren'Py 8.3.3.24111502
-Wed Dec 11 00:43:45 2024
+Thu Dec 12 21:38:29 2024
