@@ -761,11 +761,14 @@ label bridging_2:
 
     joko 'Baiklah, ayo ikuti aku paman! Kita akan bertemu dengan temanku.'
     joko'Dia sudah sering membantuku memecahkan kasus-kasus seperti ini.'
-
+    stop music fadeout 1.0
     scene bg black with fade
     joko 'Halo Amanda, aku datang bersama akuntan bernama Santoso, dia akan membantu kita menyelesaikan kasus ini....'
 
     scene bg basement with dissolve
+    play music "rippleair.mp3"
+    show akuntan at left
+    show amanda-senyum at right with dissolve
     amanda 'Halo Joko dan pak Santoso. Aku dengar kalian mendapatkan clue baru?'
     joko"Iya, aku berhasil 'menyelinap' ke dalam kantor dan mendapatkan sesuatu yang menarik. Coba lihat ini."
 
@@ -775,16 +778,98 @@ label bridging_2:
         joko "Ini adalah rekaman video percakapan antara CEO dan seseorang yang tidak dikenal."
         amanda "Hmm.... Aku juga tidak mengenalnya..."
         amanda "Akan tetapi dari percakapannya, aku juga tidak mengerti tentang pengorbanan yang mereka maksud itu."
-        scene bg basement with dissolve
         joko "Hmm baiklah, mungkin jika kita tahu identitas orang itu, kita akan mendapatkan pentunjuk baru tentang kasus ini."
         joko "Tapi, kira-kira bagaimana yah caranya..."
         jump converge_bridge
     if badclue1 or badclue2:
-        scene 
+        scene bg table_badclue with dissolve
+        play sound "<from 2.5 to 3>doorslam.mp3"
+        joko "Ini adalah rekaman video percakapan antara CEO dan seseorang yang tidak dikenal.Visualnya buruk, tetapi aku rasa dapat didengar dengan cukup jelas."
+        amanda "Hmm.... Aku seperti mengenal suaranya..."
+        joko "Benarkah?"
+        amanda "Yaa, tapi sepertinya hanya perasaanku saja. ari mana kamu dapat rekaman ini?"
+        scene bg basement with dissolve
+        show akuntan at left
+        show amanda-senyum at right
+        menu:
+
+            "Kasih nama perusahaannya":
+                jump choicevent_namaperusahaan
+            "Kasih nama distrik bisnisnya":
+                jump choicevent_disbis
+        label choiceevent_namaperusahaan:
+            joko "Rekaman ini diambil di gedung PT.Metecom."
+            joko "Kamu tahu sesuatu tentang perusahaan itu?"
+            amanda "Ngak juga sih.."
+            amanda "Oke kembali ke topik rekamannnya."
+            amanda "Berdasarkan percakapannya, akan  ada suatu transaksi yang akan terjadi yang akan menjadikan suatu pihak ketiga sebagai korbannya."
+            joko "Terdengar familiar bukan?"
+            amanda "Iya, sepertinya kasus penggelapan pajak beberapa waktu yang lalu."
+            amanda "Jika ini mengikuti modus yang sama, artinya akan ada orang yang disalahkan dengan tuduhan penggelapan pajak"
+            amanda "Sedangkan, pelaku aslinya akan aman dari jeratan hukum."
+
+            joko "Aku juga memikirkan hal yang sama."
+            joko "Aku jadi semakin yakin bahwa ini adalah modus yang sama."
+            joko "Menurutku, yang harus kita lakukan sekarang adalah mencari tahu identitas pria itu."
+            joko "Tetapi aku bingung cara mendapatkannya..."
+
+            jump converge_bridge
+        
+
+        label choiceevent_disbis:
+            joko "Rekaman ini diambil di suatu perusahaan dari distrik X."
+            amanda "Baiklah kembali ke topik rekamannnya."
+            amanda "Berdasarkan percakapannya, akan  ada suatu transaksi yang akan terjadi yang akan menjadikan suatu pihak ketiga sebagai korbannya."
+            joko "Terdengar familiar bukan?"
+            amanda "Iya, sepertinya kasus penggelapan pajak beberapa waktu yang lalu."
+            amanda "Jika ini mengikuti modus yang sama, artinya akan ada orang yang disalahkan dengan tuduhan penggelapan pajak"
+            amanda "Sedangkan, pelaku aslinya akan aman dari jeratan hukum."
+
+            joko "Aku juga memikirkan hal yang sama."
+            joko "Aku jadi semakin yakin bahwa ini adalah modus yang sama."
+            joko "Menurutku, yang harus kita lakukan sekarang adalah mencari tahu identitas pria itu."
+            joko "Tetapi aku bingung cara mendapatkannya..."
+
+            jump converge_bridge
+
+
+
 
 label converge_bridge:
-    scene bg table_clueall with dissolve
+    scene bg basement with dissolve
+    show akuntan at left
+    show amanda-senyum at right
+
     akuntan "Saya rasa ada suatu cara."
     akuntan "Setiap orang yang masuk ke area kantor umumnya memiliki kartu registrasi."
     akuntan "Setiap seseorang masuk atau keluar kantor, kartu itu harus di-tap ke perangkat logger."
     akuntan "Logger itu akan mencatat data diri pengguna kartu untuk disimpan di database perusahaan."
+
+    amanda "Akan tetapi, apakah ia pasti masuk dengan kartu registrasi?"
+
+    joko "Mengingat bahwa pria tersebut mengenal CEO dan tidak pernah sekalipun menunjukan gerak-gerik bahwa ia sedang menyelinap atau bingung,"
+    joko "Kemungkinan besar ia sudah pernah datang ke kantor itu sebelumnya"
+    joko "Berdasarkan deduksiku, besar kemungkinan ia memiliki kartu registrasi."
+    scene bg table_clueall with dissolve
+    amanda "Aku rasa kamu benar."
+    amanda "Namun, aku yakin database perusahaan hanya bisa diakses melalui server perusahaan."
+    amanda "Terlebih lagi, pasti hanya beberapa orang memiliki akses untuk data tersebut."
+    amanda "Bagaimana kita mengaksesnya?"
+
+    akuntan "Aku tahu lokasi fisik dari datacenter itu."
+    akuntan "Akan tetapi, aku tidak memiliki akses untuk database itu."
+
+    joko "Tenang saja, itu saja sudah lebih dari cukup."
+    joko "Aku pernah belajar mengenai keamanan siber sehingga aku akan mencoba membobol databasenya."
+
+    amanda "Kamu tahu tidak akan semudah itu kan...?"
+
+    joko"Tenang saja, perusahaan itu memiliki emergency exit yang terkunci."
+    joko "Dengan implementasi keamanan dan keselamatan yang sepayah itu, aku yakin keamanan siber mereka juga sama payahnya."
+    joko "Ayo pergi paman, kita harus bersiap-siap."
+    joko "Penyelinapan  yang kedua ini akan dilakukan esok hari, pukul 5 sore."
+
+    amanda "Tunggu, apa aku boleh ikut, aku juga penasaran..."
+    joko "Sebaiknya tidak, karena ini penyelinapan. Jika terlalu banyak orang, peluang kita tertangkap akan semakin besar."
+    amanda "Huft.... Baiklah..."
+
