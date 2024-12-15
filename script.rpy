@@ -107,6 +107,8 @@ label start:
     $ goodclue2 = False
     $ badclue1 = False
     $ badclue2 = False
+    $ goodclueact2 = False
+    $ badclueact2 =False
     stop music
     play music "type.mp3" loop volume 0.8
 
@@ -666,12 +668,6 @@ label choicemasuk_jendela:
     return
 
 label bridging_2:
-    stop music fadeout 2.0
-    scene bg black with Dissolve(2.0)
-    play music "type.mp3" loop volume 0.8
-
-    centered "{color=#ffffff}{size=60}{cps=2}ACT II"
-
     stop music
 
     play music "tegang.mp3" loop volume 0.8
@@ -792,12 +788,11 @@ label bridging_2:
         show akuntan at left
         show amanda-senyum at right
         menu:
-
             "Kasih nama perusahaannya":
                 jump choicevent_namaperusahaan
             "Kasih nama distrik bisnisnya":
                 jump choicevent_disbis
-        label choiceevent_namaperusahaan:
+        label choicevent_namaperusahaan:
             joko "Rekaman ini diambil di gedung PT.Metecom."
             joko "Kamu tahu sesuatu tentang perusahaan itu?"
             amanda "Ngak juga sih.."
@@ -816,7 +811,7 @@ label bridging_2:
             jump converge_bridge
         
 
-        label choiceevent_disbis:
+        label choicevent_disbis:
             joko "Rekaman ini diambil di suatu perusahaan dari distrik X."
             amanda "Baiklah kembali ke topik rekamannnya."
             amanda "Berdasarkan percakapannya, akan  ada suatu transaksi yang akan terjadi yang akan menjadikan suatu pihak ketiga sebagai korbannya."
@@ -873,3 +868,154 @@ label converge_bridge:
     joko "Sebaiknya tidak, karena ini penyelinapan. Jika terlalu banyak orang, peluang kita tertangkap akan semakin besar."
     amanda "Huft.... Baiklah..."
 
+    stop music fadeout 2.0
+    scene bg black with Dissolve(2.0)
+    play sound "type.mp3" volume 0.8
+
+    centered "{color=#ffffff}{size=60}{cps=2}ACT II"
+    stop sound
+    jump act2
+
+label act2:
+    #kantor depan
+    scene bg officefront with dissolve
+    show akuntan at center with dissolve
+    akuntan "Baik kita akan menuju kantor saya dulu untuk menentukan rencana berikutnya"
+    joko"Baik akan aku ikutin paman"
+
+    scene bg officetables with dissolve
+    show akuntan with dissolve
+    akuntan "Oke aku mengetahui lokasi databasenya berada di lantai 13, tetapi aku yakin kita perlu akses khusus untuk mengakses databasenya. "
+    akuntan "Apakah kamu yakin kamu bisa membobol database tersebut ? "
+
+    joko "Saya cukup yakin paman, tetapi mungkin saya memerlukan bantuan bapak sedikit,"
+    joko "Saya kepikiran mungkin kita bisa menemukan clue lain dari database itu seperti bukti-bukti lainnya"
+    akuntan "Baiklah saya mungkin bisa mencoba melihat database yang ada keanehan dan tidak sesuai dengan pekerjaan perusahaan ini."
+    #elevator
+    scene bg elevator1 with dissolve
+    pause(0.2)
+    scene bg elevator2 with dissolve
+    pause (0.2)
+    scene bg elevatorfinal with dissolve
+    pause (0.2)
+    scene bg elevatorinside with dissolve
+    pause(0.2)
+    scene bg elevatorpressed
+    akuntan "Baik setelah pintu ini terbuka, ruang database akan berada di koridor sebelah kiri kita, berjarak 3 pintu dari elevator ini.. "
+    akuntan "Kita harus bersiap, pastikan tidak ada yang mencurigai kita"
+    scene bg elevatoropened with dissolve
+    pause(0.2)
+    scene bg hallwaysillhouette with dissolve
+    joko "Hah tidak mungkin.. itu bukannya.."
+    show akuntan at center
+    akuntan "Iya itu bapak ceo perusahaan ini.. ah kenapa dia ada disini sekarang"
+    joko "Aku ada ide.. bagaimana jika.."
+    menu:
+        "Suruh akuntan membuat distraksi":
+            jump choiceevent_distract
+        "Suruh akuntan memanggil CEO keluar":
+            jump choiceevent_callout
+    label choiceevent_distract:
+        joko "Bagaimana jika paman membuat distraksi dan kemudian saya masuk kedalam ruangan database dan mengambil datanya secepat mungkin?"
+        akuntan "Hmm mungkin itu bisa berhasil.. "
+        akuntan "Aku akan mencoba untuk menyalakan alarm apinya dan setelah CEO tersebut keluar dari ruangan database kau harus langsung masuk kedalam."
+        joko "Baik kita bisa mencoba itu"
+        scene bg falarmhallway with dissolve
+        show akuntan with None
+        pause(0.3)
+        hide akuntan with dissolve
+        scene bg database
+        "Sekarang tinggal kita tunggu sampai...."
+        play sound "alarm.mp3" loop volume 0.7
+        "Nah, itu dia.. sekarang dia akan..."
+        show ceo-sombong with dissolve
+        ceo "?!?!"
+        stop sound fadeout 0.7
+        joko "PAK KEBAKARAN PAK CEPAT KELUARRRRRR!!!!"
+        show ceo-sombong at right with dissolve
+        hide ceo-sombong with fade
+        "Hm.. cepat juga dia lari."
+        "Baiklah, waktunya beraksi!"
+        scene bg serverroom with dissolve
+        "Oke, mari kita mulai..."
+        "Database registrasi..."
+        "Database akuntan.."
+        "Nah ini dia database akses.. "
+        "Mari kita lihat...Hmmm akses dalam beberapa hari lalu"
+        "Akses pihak luar.. oke mari kita download ini!"
+        scene bg black
+        play sound "doorslam.mp3"
+        "!!!"
+        scene bg serverroom
+        show akuntan at right with dissolve
+        joko "Yaampun paman jangan kagetin saya begitu dong."
+        akuntan"Maaf, tadi saya harus menunggu lantai ini tidak ada orang dulu baru saya bisa kesini. "
+        akuntan "Apakah kamu sudah menemukannya?"
+        joko "Sudah, coba paman lihat ini."
+        akuntan"Baik data akses, baguslah kita bisa menggunakan itu..  "
+        akuntan "Bentarrrr… coba buka itu data keuangan"
+        joko "Data keuangan.. bukannya paman seharusnya punya akses database ini??"
+        akuntan "Tidak bisa melihat semua filenya karena memerlukan akses database internal"
+        joko "Baiklah.. mari kita lihat..."
+        hide akuntan
+        show akuntan-shock at right with dissolve
+        joko "Ini.. ternyata semuanya benar.."
+        akuntan"Aku tidak percaya ini… "
+        akuntan "Ini semua data pajak kota ini, lengkap ada nama dari siapa yang membayar dan kapan… Semua uang tersebut disalurkan kesini.."
+        joko "Kita harus mengambil data ini…"
+        akuntan "Sepertinya itu sudah cukup, mari kita lari dari sini!"
+        $ goodclueact2 =True
+        jump act2_converge_final
+    
+    label choiceevent_callout:
+        joko "Bagaimana jika paman mencoba untuk mendistraksi CEO dan selama paman mendistraksi dia saya akan mencoba untuk menyelinap masuk dan mengambil datanya."
+        akuntan "Hmmm baiklah mungkin itu bisa berhasil, tapi saya tidak bisa menjanjikan saya bisa mendistraksinya dengan lama"
+        joko "Tidak apa-apa pak, saya akan mencoba untuk dengan cepat mengambil datanya"
+        scene bg black with Dissolve(1.0)
+
+        centered "{color=#ffffff}{size=40}{cps=2}AKUNTAN POV"
+        scene bg database
+        ## play sound "knock.mp3" #Belum ada
+        play sound "doorslam.mp3"
+        show ceo-sombong with dissolve
+        akuntan "Permisi Pak.. saya sudah menyiapkan laporan keuangan bulan ini, apakah bapak ingin melihatnya sekarang ? "
+        hide ceo-sombong
+        show ceo-ketawasinis
+        ceo "Ah laporan keuangan ya, tumben juga cepat.. baiklah mari kita lihat bentar."
+        akuntan "Baik pak, saya sudah menyiapkannya di kantor saya pak. Kita bisa turun dulu kesana untuk melihatnya"
+        ceo "Baiklah kalau begitu.."
+        scene bg black
+        "Semua ada di tangan mu, Joko!"
+        centered "{color=#ffffff}{size=40}{cps=2}JOKO POV"
+        scene bg database with dissolve
+        "Mereka sudah pergi..."
+        scene bg serverroom with dissolve
+        "Oke... Hmmmm..."
+        "Oke, mari kita mulai..."
+        "Database registrasi..."
+        "Database akuntan.."
+        "Nah ini dia database akses.. "
+        "Mari kita lihat...Hmmm akses dalam beberapa hari lalu"
+        "Akses pihak luar.. oke mari kita download ini!"
+        scene bg black
+        play sound "doorslam.mp3"
+        "!!!"
+        ceo "Ah bisa-bisanya akuntan itu kehilangan laporannya.."
+        ceo "?!??"
+        ceo "Hmm apakah aku tadi hanya membayangkan ada seseorang disini?"
+        scene bg serverroom with dissolve
+        ceo "Ah aku pasti stress karena akuntan tadi.."
+        $ badclueact2 =True
+        jump act2_converge_final
+
+label act2_converge_final:
+    scene bg database with fade
+    if badclueact2:
+        "Phew...."
+        akuntan "Kamu sudah dapatkan datanya kan? Ayo CEPAT!"
+        joko "Kita harus segera laporkan ini!"
+    play sound "fastrun.mp3"
+    scene bg elevatorfinal with dissolve
+    "Itu dia elevatornya!!"
+    scene bg black
+    amanda "BERHENTIIII!!!!!!!!!!!!!!!!"
