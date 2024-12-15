@@ -446,7 +446,6 @@ label choicemasuk_pintu:
         jump bridging_2
 
     return
-
 label bridging_2:
     stop music fadeout 2.0
     scene bg black with Dissolve(2.0)
