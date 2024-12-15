@@ -103,7 +103,10 @@ define left = Position(xalign=0.1, yalign=0.5)
 define right = Position(xalign=0.9, yalign=0.5)
 
 label start:
-    
+    $ goodclue1=False
+    $ goodclue2 = False
+    $ badclue1 = False
+    $ badclue2 = False
     stop music
     play music "type.mp3" loop volume 0.8
 
@@ -443,6 +446,7 @@ label choicemasuk_pintu:
 
             # END ACT 1 BAD CLUE
             $ badclue1 = True
+            jump bridging_2
 
         label choicehide_alternate:
             # scene bg jendelakorden
@@ -476,6 +480,7 @@ label choicemasuk_pintu:
 
             # END ACT 1 GOOD CLUE
             $ goodclue1 = True
+            jump bridging_2
             
 return
 
@@ -614,6 +619,7 @@ label choicemasuk_jendela:
 
             # END ACT 1 (BAD CLUE)
             $ badclue2 = True
+            jump bridging_2
 
         label choicevent_kiri:
             # scene bg ventilasi with dissolve
@@ -655,5 +661,128 @@ label choicemasuk_jendela:
 
             # END ACT 1 (GOOD CLUE)
             $ goodclue2 = True
+            jump bridging_2
 
     return
+
+label bridging_2:
+    stop music fadeout 2.0
+    scene bg black with Dissolve(2.0)
+    play music "type.mp3" loop volume 0.8
+
+    centered "{color=#ffffff}{size=60}{cps=2}ACT II"
+
+    stop music
+
+    play music "tegang.mp3" loop volume 0.8
+    scene bg hallway_fexit with dissolve
+
+    "Aku harus menemukan pintu keluar secepat mungkin, jangan sampai terlihat siapapun!"
+    "Wah ada pintu darurat, coba lewat situ deh"
+
+    scene bg fexit with dissolve    
+    "Lho, ini kan emergency exit, kenapa pintunya bisa terkunci?"
+    "Emang ada yang gak beres sama nih perusahaan."
+
+    play sound "<from 5 to 8>langkahkaki.mp3"
+    
+    scene bg black with fade
+    "WADUH ADA ORANG GIMANA NIH!!!"
+    scene bg hallway_fexit with dissolve
+    show akuntan with Dissolve(0.5)
+    $ akuntan = "Pria misterius"
+    joko "Uhh… selamat siang pak… ada yang bisa saya bantu…?"
+    akuntan "Sudah… tidak usah basa-basi"
+
+    scene bg fexit with dissolve
+    scene bg fexit_open with dissolve
+    akuntan "Ayo keluar, Tadi kamu mau jalan keluar bukan?"
+    joko "Uhh...."
+    akuntan "Gak usah takut, saya tau tadi kamu ngapain."
+    akuntan "Supaya lebih santai, kita obrolin sambil makan ya."
+    joko "O-oke...."
+
+    scene bg kedai_taichan with dissolve
+    stop music fadeout 1.0
+    play music "rame.mp3" loop volume 0.8
+
+    show akuntan at left with dissolve
+    joko "Uhh... ku boleh bertanya?"
+    
+    akuntan "Boleh dong!"
+    
+    joko "Apa hubungan paman dengna kantor tadi?"
+    
+    akuntan "Aku adalah seorang akuntan di perushaan itu."
+    akuntan "Aku baru masuk beberapa bulan yang lalu"
+    $ akuntan = "Akuntan"
+
+    joko "Aku yakin paman sadar bahwa aku bukanlah karyawan di perusahaan itu."
+    joko "Gerak-gerik ku juga sudah cukup mencurigakan. Jadi, mengapa paman menolongku?"
+    
+    akuntan "Ya, semua yang kamu katakan benar. Aku melihatmu saat kamu berada di lorong."
+    akuntan "Aku juga melihatmu memata-matai CEO perusahaan. Alasan aku menolongmu karena ingin tahu apa tujuanmu."
+    akuntan "Kalau aku laporkan kejadian ini ke pihak keamanan, pasti akan jauh lebih rumit."
+    akuntan "Jadi, Apa tujuan mu melakukan semua ini?"
+
+    joko "Aku sebenarnya ingin memecahkan sebuah kasus."
+    
+    akuntan "Kasus?"
+    
+    joko "Iya paman, Ini tentang kemungkinan terjadinya penggelapan pajak yang dilakukan seseorang. Aku yakin bahwa CEO perusahaan itu terlibat."
+    
+    akuntan "Hmm... Apakah pengalaman saya ini berhubungan dengan kasusmu?"
+    
+    joko "Maksud paman?"
+
+    akuntan "Sebagai akuntan perusahaan, tentunya saya memiliki informasi keuangan perusahaan."
+    akuntan "Saya sempat melakukan audit terhadap pendapatan perusahaan. Dalam audit itu, saya menyadari ada kejanggalan tentang aliran dana yang diterima perusahaan."
+    akuntan 'Ketika saya tanyakan kejanggalan ini kepada atasan saya, Beliau hanya mengatakan "Sudah, lakukan saja tugasmu. Anak baru sepertimu tidak usah banyak tanya". ' 
+
+    joko 'Wah, ini memperkuat asumsi awalku bahwa benar-benar terjadi penggelapan pajak.'
+    joko 'Bagaimana orang-orang itu bisa sangat tega ya? Menggunakan pajak dari rakyat kecil untuk kepentingan peibadinya!'
+
+    akuntan 'Ya begitulah orang-orang dengan kuasa. Untung saya sudah lama tidak bayar pajak, Haha.'
+
+    joko 'HAH?!? Bagaimana paman bisa merasa bangga setelah menghindari pajak. Itu kan melanggar hukum!'
+
+    akuntan 'Kamu terlalu naif jika hanya mengambil sudut pandang tersebut. Kamu sudah lihat secara langsung bahwa terjadi penggelapan pajak.'
+    akuntan 'Untuk apa aku membayar pajak jika dananya hanya akan disalahgunakan oleh orang-orang seperti mereka.'
+
+    joko 'Ya.. jika dilihat dari sudut pandang itu, aku cukup paham apa yang paman maksud.'
+
+    akuntan 'Andai saja orang-orang seperti mereka bisa mendapatkan ganjaran untuk perbuatan mereka...'
+
+    joko 'AKU PUNYA IDE !'
+    joko 'Bagaimana jika paman membantuku untuk membongkar kasus ini, supaya publik bisa tahu.'
+    joko 'Tapi, kalau kita berhasil, paman harus berjanji untuk membayar pajak sesuai tanggungan paman!'
+
+    akuntan 'Wah ide bagus. Jika birokrasi kita bersih dan terpercaya, saya tidak akan merasa tertipu saat membayar pajak!'
+
+    joko 'Baiklah, ayo ikuti aku paman! Kita akan bertemu dengan temanku.'
+    joko'Dia sudah sering membantuku memecahkan kasus-kasus seperti ini.'
+
+    scene bg black with fade
+    joko 'Halo Amanda, aku datang bersama akuntan bernama Santoso, dia akan membantu kita menyelesaikan kasus ini....'
+
+    scene bg basement with dissolve
+    amanda 'Halo Joko dan pak Santoso. Aku dengar kalian mendapatkan clue baru?'
+    joko"Iya, aku berhasil 'menyelinap' ke dalam kantor dan mendapatkan sesuatu yang menarik. Coba lihat ini."
+
+    if goodclue1 or goodclue2:
+        scene bg table_goodclue with dissolve
+        play sound "<from 2.5 to 3>doorslam.mp3"
+        joko "Ini adalah rekaman video percakapan antara CEO dan seseorang yang tidak dikenal."
+        amanda "Hmm.... Aku juga tidak mengenalnya..."
+        amanda "Akan tetapi dari percakapannya, aku juga tidak mengerti tentang pengorbanan yang mereka maksud itu."
+        scene bg basement with dissolve
+        joko "Hmm baiklah, mungkin jika kita tahu identitas orang itu, kita akan mendapatkan pentunjuk baru tentang kasus ini."
+        joko "Tapi, kira-kira bagaimana yah caranya..."
+        jump converge_bridge
+
+label converge_bridge:
+    scene bg table_clueall with dissolve
+    akuntan "Saya rasa ada suatu cara."
+    akuntan "Setiap orang yang masuk ke area kantor umumnya memiliki kartu registrasi."
+    akuntan "Setiap seseorang masuk atau keluar kantor, kartu itu harus di-tap ke perangkat logger."
+    akuntan "Logger itu akan mencatat data diri pengguna kartu untuk disimpan di database perusahaan."
