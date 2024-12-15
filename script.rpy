@@ -779,6 +779,8 @@ label bridging_2:
         joko "Hmm baiklah, mungkin jika kita tahu identitas orang itu, kita akan mendapatkan pentunjuk baru tentang kasus ini."
         joko "Tapi, kira-kira bagaimana yah caranya..."
         jump converge_bridge
+    if badclue1 or badclue2:
+        scene 
 
 label converge_bridge:
     scene bg table_clueall with dissolve
