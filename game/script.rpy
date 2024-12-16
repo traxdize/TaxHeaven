@@ -1,8 +1,5 @@
 # The script of the game goes in this file.
 
-##regular taps, medium intervals
-define soundhard = ['audio/A1.ogg', 'audio/A2.ogg', 'audio/A3.ogg', 'audio/A4.ogg', 'audio/A5.ogg']
-
 ##light taps, smaller intervals
 define soundsoft = ['audio/B1.ogg', 'audio/B2.ogg', 'audio/B3.ogg', 'audio/B4.ogg', 'audio/B5.ogg']
 
@@ -48,46 +45,6 @@ init python:
         elif event == "slow_done" or event == "end":
             renpy.sound.stop()
 
-    def type_soundhard(event, interact=True, **kwargs):
-        if not interact:
-            return
-
-        if event == "show": #if text's being written by character, spam typing hard until the text ends
-            renpy.sound.play(renpy.random.choice(soundhard))
-            renpy.sound.queue(renpy.random.choice(soundhard))
-            renpy.sound.queue(renpy.random.choice(soundhard))
-            renpy.sound.queue(renpy.random.choice(soundhard))
-            renpy.sound.queue(renpy.random.choice(soundhard))
-            renpy.sound.queue(renpy.random.choice(soundhard))
-            renpy.sound.queue(renpy.random.choice(soundhard))
-            renpy.sound.queue(renpy.random.choice(soundhard))
-            renpy.sound.queue(renpy.random.choice(soundhard))
-            renpy.sound.queue(renpy.random.choice(soundhard))
-            renpy.sound.queue(renpy.random.choice(soundhard))
-            renpy.sound.queue(renpy.random.choice(soundhard))
-            renpy.sound.queue(renpy.random.choice(soundhard))
-            renpy.sound.queue(renpy.random.choice(soundhard))
-            renpy.sound.queue(renpy.random.choice(soundhard))
-            renpy.sound.queue(renpy.random.choice(soundhard))
-            renpy.sound.queue(renpy.random.choice(soundhard))
-            renpy.sound.queue(renpy.random.choice(soundhard))
-            renpy.sound.queue(renpy.random.choice(soundhard))
-            renpy.sound.queue(renpy.random.choice(soundhard))
-            renpy.sound.queue(renpy.random.choice(soundhard))
-            renpy.sound.queue(renpy.random.choice(soundhard))
-            renpy.sound.queue(renpy.random.choice(soundhard))
-            renpy.sound.queue(renpy.random.choice(soundhard))
-            renpy.sound.queue(renpy.random.choice(soundhard))
-            renpy.sound.queue(renpy.random.choice(soundhard))
-            renpy.sound.queue(renpy.random.choice(soundhard))
-            renpy.sound.queue(renpy.random.choice(soundhard))
-            renpy.sound.queue(renpy.random.choice(soundhard))
-            renpy.sound.queue(renpy.random.choice(soundhard))
-            renpy.sound.queue(renpy.random.choice(soundhard))
-            #dumb way to do it but it works, dunno if it causes memory leaks but it's almost 6AM :v
-
-        elif event == "slow_done" or event == "end":
-            renpy.sound.stop()
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -98,17 +55,53 @@ define seller = Character('Kang Gorengan', color="#ffaa00", callback=type_sounds
 define chg = Character('NPC', color="#eeee1a", callback=type_soundsoft)
 define unk = Character('???', color="#ffffff", callback=type_soundsoft)
 define ceo = Character('CEO', color="#ff0000", callback=type_soundsoft)
+define akuntan = Character('Akuntan', color="#29ce47", callback=type_soundsoft)
+define satpam = Character("Satpam", color="#ffffff", callback=type_soundsoft)
+define polisi = Character("Polisi", color="#1c16be", callback=type_soundsoft)
+define hakim = Character("Hakim", color="#16dfdf", callback=type_soundsoft)
 define center = Position(xalign=0.5, yalign=0.5)
 define left = Position(xalign=0.1, yalign=0.5)
 define right = Position(xalign=0.9, yalign=0.5)
 
 label start:
-    $ goodclue1=False
+    $ goodclue1= False
     $ goodclue2 = False
     $ badclue1 = False
     $ badclue2 = False
     $ goodclueact2 = False
     $ badclueact2 =False
+
+python:
+    badend = 0
+    name = ""
+    while name != "Joko" and name != "joko" and name != "JOKO" and badend < 5:
+        if badend == 0:
+            name = renpy.input("Input namamu!")
+        elif badend == 1:
+            name = renpy.input("Namanya harus Joko btw")
+        elif badend == 2:
+            name = renpy.input("Namamu Joko!")
+        elif badend == 3:
+            name = renpy.input("NGERTI GA SIH NAMA LU JOKO")
+        else:
+            name = renpy.input("YANG BENER JOKO!!!!!!!")
+        name = name.strip()
+        if name == "Joe":
+            name = renpy.input("WOLOH DARK SYSTEM ITU MAH!")
+        badend += 1
+    
+if badend == 5:
+    $ badend_n = True
+    jump badend_nama
+else:
+    $ badend_n = False
+
+    if badend_n:
+        label badend_nama:
+            show lift_chillguy
+            "DIBILANG NAMA LU JOKO!"
+            return
+    
     stop music
     play music "type.mp3" loop volume 0.8
 
@@ -214,6 +207,8 @@ label start:
 
     ## MASUK WARUNG SUNDA
 
+    play music "warungsunda.mp3" volume 0.75
+
     scene bg warung sunda
     with dissolve
 
@@ -243,7 +238,7 @@ label start:
     amanda "Itu bukannya{cps=8}.... sebentar{cps=5}.."
     amanda "Gak mungkin sih{cps=5}..."
 
-    ## LAPTOP SCENE
+    ## KORAN SCENE
 
     scene koran with dissolve
 
@@ -279,6 +274,9 @@ label start:
     joko "Aku harus segera ke tukang gorengan itu!"
     joko "Aku harus cari tahu dari mana dia dapat kertas itu!"
 
+    stop music
+    play music "<from 3.0 to 54.0>gorengan.mp3" fadein 1.0 volume 0.03 loop
+
     scene bg gorengan with dissolve
     show seller with dissolve
     
@@ -298,7 +296,11 @@ label start:
 
     ## INFILTRASI
 
+    stop music fadeout 2.0
+
     scene bg cari jalan with dissolve
+
+    pause(1)
 
     scene bg kota with dissolve
 
@@ -394,6 +396,7 @@ label choicemasuk_pintu:
         scene bg tombollift with dissolve
         "Tadi apa katanya? Lantai 14 ya.."
 
+        play sound "lift.mp3"
         scene bg lift14 with dissolve
         "Oke.."
 
@@ -508,6 +511,7 @@ return
 
 label choicemasuk_jendela:
     # scene bg emptyroom
+    play sound "Manjat.mp3"
     scene bg emptyroom ## placeholder
 
     "Ah, untungnya sebuah ruangan kosong, tapi aku harus segera keluar!"
@@ -712,7 +716,6 @@ label bridging_2:
     "WADUH ADA ORANG GIMANA NIH!!!"
     scene bg hallway_fexit with dissolve
     show akuntan with Dissolve(0.5)
-    $ akuntan = "Pria misterius"
     joko "Uhh… selamat siang pak… ada yang bisa saya bantu…?"
     akuntan "Sudah… tidak usah basa-basi"
 
@@ -737,7 +740,6 @@ label bridging_2:
     
     akuntan "Aku adalah seorang akuntan di perushaan itu."
     akuntan "Aku baru masuk beberapa bulan yang lalu"
-    $ akuntan = "Akuntan"
 
     joko "Aku yakin paman sadar bahwa aku bukanlah karyawan di perusahaan itu."
     joko "Gerak-gerik ku juga sudah cukup mencurigakan. Jadi, mengapa paman menolongku?"
@@ -925,6 +927,7 @@ label act2:
     pause (0.2)
     scene bg elevatorfinal with dissolve
     pause (0.2)
+    play sound "lift.mp3" volume 0.7
     scene bg elevatorinside with dissolve
     pause(0.2)
     scene bg elevatorpressed
@@ -948,12 +951,12 @@ label act2:
         akuntan "Aku akan mencoba untuk menyalakan alarm apinya dan setelah CEO tersebut keluar dari ruangan database kau harus langsung masuk kedalam."
         joko "Baik kita bisa mencoba itu"
         scene bg falarmhallway with dissolve
-        show akuntan with None
-        pause(0.3)
+        show akuntan with dissolve
+        pause(1)
         hide akuntan with dissolve
         scene bg database
         "Sekarang tinggal kita tunggu sampai...."
-        play sound "alarm.mp3" loop volume 0.7
+        play sound "alarm.mp3" loop volume 0.4
         "Nah, itu dia.. sekarang dia akan..."
         show ceo-sombong with dissolve
         ceo "?!?!"
@@ -985,7 +988,8 @@ label act2:
         akuntan "Tidak bisa melihat semua filenya karena memerlukan akses database internal"
         joko "Baiklah.. mari kita lihat..."
         hide akuntan
-        show akuntan-shock at right with dissolve
+        show akuntan-shock at right
+        with dissolve
         joko "Ini.. ternyata semuanya benar.."
         akuntan"Aku tidak percaya ini… "
         akuntan "Ini semua data pajak kota ini, lengkap ada nama dari siapa yang membayar dan kapan… Semua uang tersebut disalurkan kesini.."
@@ -1046,3 +1050,126 @@ label act2_converge_final:
     "Itu dia elevatornya!!"
     scene bg black
     amanda "BERHENTIIII!!!!!!!!!!!!!!!!"
+    jump bridge_ending
+
+label bridge_ending:
+    scene bg elevatorfinal
+    play music "tegang.mp3"
+    show akuntan at left
+    show amanda-shock_cropped at right
+
+    joko "Amanda? Apa yang kamu lakukan di sini?"
+    amanda "Itu tidak penting? Yang penting adalah kalian berhenti melakukan hal ini!"
+    joko "Apa maksudmu? Bukankah rencana kita sejak awal adalah membongkar kasus ini dan memberitahukan kebenaran kepada dunia?"
+    amanda "{cps=3}I-{cps=40}iya{cps=3}..."
+    joko "Lihat! Kita sudah mendapatkan informasi mengenai database akses perusahaan. Bahkan, kita juga berhasil mendapatkan data pajak masyara–"
+    amanda "{size=+5}CUKUP! Pada rekaman yang kamu berikan{cps=4}...{cps=40} orang yang berbicara dengan CEO{cps=4}...{cps=40} adalah ayahku!{/size}"
+    
+    hide akuntan
+    show akuntan-shock at left
+    with Dissolve(0.3)
+
+    joko "{cps=3}B-{cps=20}Bagaimana bisa{cps=3}..."
+    akuntan "Tidak ada yang bisa kita lakukan. Kita sudah sampai sejauh ini. Kebenaran harus diungkapkan! Ayo Joko, kita pergi."
+
+    hide akuntan_scream
+    show akuntan-shock at left
+    show amanda-shock_cropped at right
+
+    amanda "{size=-5}Jika kalian tetap ingin pergi, aku akan menekan alarm security ini karena hampir seluruh satpam sudah pulang, satpam yang tersisa pasti akan menelpon polisi. Kalian akan ditangkap karena masuk ke ruangan database tanpa izin.{/size}"
+    
+    hide akuntan-shock
+    show akuntan at left
+    with dissolve
+
+    akuntan "Lakukan sesuka hatimu! Ayo pergi Joko!"
+    
+    stop music
+    play music "alarm.mp3" volume 0.4
+    scene bg blackout with dissolve
+    
+    satpam "Wah siapa itu, berlarian di lorong. Saya tidak pernah melihatnya di sini. PASTI PENYUSUP! Saya harus cepat-cepat telpon polisi!"
+    
+    play sound "lift.mp3"
+    
+    scene bg tombollift with dissolve
+
+    pause(1)
+    
+    scene bg elevatoropened with dissolve
+
+    show polisi_cropped_1 at left
+    show polisi_cropped_2 at center
+    show polisi_cropped_3 at right
+    with Dissolve(0.3)
+
+    polisi "Selamat siang, kami mendapat laporan bahwa ada penyusup di perusahaan ini. Apakah Anda tahu mengenai hal ini?"
+    akuntan "Uh{cps=5}..."
+
+    hide polisi_cropped_3
+    show ceo-ketawasinis at right
+    with dissolve
+
+    ceo "Pemuda itu pak penyusupnya. Satpam bilang ia terlihat berlarian di lorong lantai 13. Lorong itu juga dekat dengan database. Pasti ia mencuri data perusahaan!!!"
+    polisi "Apakah benar begitu?"
+    joko "{cps=20}Betul, Pak. Tetapi{cps=3}..."
+    ceo "Dia sudah mengaku pak cepat borgol dia. jangan sampai dia kabur membawa data perusahaan saya!!!"
+    
+    stop music
+    scene bg officefront
+    show akuntan at left
+    show polisi_cropped_2 at right
+    with dissolve
+
+    joko "Pak polisi, bapak boleh borgol saya. Saya juga tidak akan lari. Akan tetapi, saya harus menunjukkan sesuatu kepada bapak"
+    polisi "Baiklah."
+    "Joko menunjukkan data-data yang sudah diambil dari database perusahaan."
+    "Polisi menganggukan kepalanya dan menghampiri CEO perusahan"
+
+    hide akuntan
+    hide polisi_cropped_2
+    with dissolve
+
+    show polisi_cropped_2 at left
+    show ceo-ketawasinis at right
+    with dissolve
+
+    ceo "Bagaimana pak? Benarkah dia mencuri data perusahaan saya?"
+    polisi "Ya, benar"
+    ceo "Bapak tunggu apa lagi?! Cepat borgol si penjahat itu, Pak!"
+    "Polisi memborgol CEO perusahaan"
+    
+    hide ceo-ketawasinis
+    show ceo-sombong at right
+    with Dissolve(0.2)
+
+    ceo "Loh!!! Kok saya yang diborgol, pak???"
+    polisi "Sudah ikut saya dulu ke kantor!"
+    ceo "{size=-4}Penyusupnya dia pak, bukan saya. Kok bapak menangkap saya. Jangan-jangan bapak diberi sesuatu oleh pemuda itu ya? Ternyata kepolisian masih melakukan praktik suap-menyuap ya Pak???{/size}"
+    polisi "Enak saja! Itu mah kamu!!!"
+    ceo "{size=+10}LOH?!?! ADA APA INI PAK???{/size}"
+    polisi "Anda terduga telah melakukan kegiatan penggelapan uang yang melibatkan pajak warga hingga Anda bisa membuktikan Anda tidak bersalah, Anda akan ditahan."
+    ceo "Tidak mungkin, apa yang telah dilakukan oleh pemuda itu?!?"
+
+    scene bg blackout with Dissolve(1)
+    
+    play music "type.mp3" loop volume 0.8
+    centered "{size=+10}{cps=10}Beberapa hari kemudian{cps=5}..."
+
+    stop music
+    play music "tegang.mp3" volume 0.5
+    scene bg sidang with Dissolve(1)
+
+    show hakim_cropped at center with dissolve
+
+    hakim "SIDANG KASUS PENGGELAPAN PAJAK DAN KORUPSI PERUSAHAAN {b}Metecom{/b} DIMULAI"
+    hakim "Untuk Joko silahkan berikan bukti yang Anda temukan"
+
+
+
+
+
+
+
+
+
