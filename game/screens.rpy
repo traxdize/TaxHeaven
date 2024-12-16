@@ -625,8 +625,8 @@ screen about():
             text _("Programmer:\nDarren Johan & 13223032 - Teknik Elektro - {a=https://www.instagram.com/toadsday}@toadsday{/a}\nMichael Liebing & 18323016 - Teknik Biomedis - {a=https://www.instagram.com/Liebing}@Liebing{/a}\nKenneth Alexander Jims & 13223004 - Teknik Elektro - {a=https://www.instagram.com/kenneth.a.jims}@kenneth.a.jims{/a}\n")
             text _("Graphic Designer/Illustrator:\nTakAsu - {a=https://www.instagram.com/ArtTakasu}ArtTakasu{/a} - {a=https://arttakasu.carrd.co/}https://arttakasu.carrd.co/{/a}\nBona Ventura Aditya J H P & 18023019 - Teknik Tenaga Listrik - {a=https://www.instagram.com/bona_ajeha.p}@bona_ajeha.p{/a}\nStanislaus Justin Widjaya & 13223098 - Teknik Elektro - {a=https://www.instagram.com/justinwidjaya}@justinwidjaya{/a}\nLionel Naythan Liu & 13223088 - Teknik Elektro - {a=https://www.instagram.com/lionel_naythan}@lionel_naythan{/a}\n")
             text _("UI/UX Designer:\nVico A C Silalahi  & 13223067 - Teknik Elektro - {a=https://www.instagram.com/vicoco.lahi}@vicoco.lahi{/a}\n")
-            text _("Sound Designer/Composer:\nReinhard Iven Winata  & 13223009 - Teknik Elektro - {a=https://www.instagram.com/ri.winnata}@ri.winnata{/a}\n")
-            text _("Quality Assurance (QA) Tester:\nMuhammad Nabil Raihan  & 13223014 - Teknik Elektro - {a=https://www.instagram.com/bilrey_19}@bilrey_19{/a}\nAbdul Aziz  & 13223023 - Teknik Elektro - {a=https://www.instagram.com/abdaziz_46}@abdaziz_46{/a}\n")
+            text _("Sound Designer/Composer:\nReinhard Iven Winata  & 13223009 - Teknik Elektro - {a=https://www.instagram.com/ri.winata}@ri.winata{/a}\n")
+            text _("Quality Assurance (QA) Tester:\nMuhammad Nabil Raihan  & 13223014 - Teknik Elektro - {a=https://www.instagram.com/billrey_19}@billrey_19{/a}\nAbdul Aziz  & 13223023 - Teknik Elektro - {a=https://www.instagram.com/abdaziz_46}@abdaziz_46{/a}\n")
             text _("Publication Specialist:\nWillliam Anthony  & 13223048 - Teknik Elektro - {a=https://www.instagram.com/Willi}@Willi{/a}\n\n")
 
             text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
