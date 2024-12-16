@@ -1,4 +1,4 @@
-﻿# The script of the game goes in this file.
+# The script of the game goes in this file.
 
 ##regular taps, medium intervals
 define soundhard = ['audio/A1.ogg', 'audio/A2.ogg', 'audio/A3.ogg', 'audio/A4.ogg', 'audio/A5.ogg']
@@ -95,9 +95,9 @@ init python:
 define joko = Character('Joko', color="#c000fb",callback=type_soundsoft)
 define amanda = Character('Amanda Kartikasari', color="#007bff", callback=type_soundsoft)
 define seller = Character('Kang Gorengan', color="#ffaa00", callback=type_soundsoft)
-define chg = Character('NPC', color="#ffffff", callback=type_soundsoft)
+define chg = Character('NPC', color="#eeee1a", callback=type_soundsoft)
 define unk = Character('???', color="#ffffff", callback=type_soundsoft)
-define ceo = Character('CEO', color="#ffffff", callback=type_soundsoft)
+define ceo = Character('CEO', color="#ff0000", callback=type_soundsoft)
 define center = Position(xalign=0.5, yalign=0.5)
 define left = Position(xalign=0.1, yalign=0.5)
 define right = Position(xalign=0.9, yalign=0.5)
@@ -208,7 +208,7 @@ label start:
     
     joko "Hmmm, ada yang aneh dengan kertas gorengan ini..."
 
-    "Coba kita lihat, transfer sebesar Rp3.5 miliar kepada perusahaan {b}Metecom{/b} dari ketua departemen keuangan{cps=5}...{cps=40} Kok nominalnya tidak asing ya?"
+    "Coba kita lihat, transfer sebesar Rp4.5 miliar kepada perusahaan {b}Metecom{/b} dari ketua departemen keuangan{cps=5}...{cps=40} Kok nominalnya tidak asing ya?"
 
     "Sepertinya aku harus simpan kertas ini dan menanyakan ini ke Amanda saat di warung nanti."
 
@@ -223,16 +223,22 @@ label start:
     
     amanda "Hah apaan lagi ini?"
 
-    show amanda-ketawa with dissolve
+    hide amanda-senyum 
+    show amanda-ketawa
+    with dissolve
 
     extend " kamu main detektif-detektifan lagi?"
 
-    show amanda-senyum with dissolve
+    hide amanda-ketawa
+    show amanda-senyum 
+    with dissolve
 
     joko "Sudahlah, lihat ini saja."
-    joko "Kenapa angka Rp3.5 miliar ini tidak asing ya?"
+    joko "Kenapa angka Rp4.5 miliar ini tidak asing ya?"
 
-    show amanda-bingung with dissolve
+    hide amanda-senyum 
+    show amanda-bingung 
+    with dissolve
 
     amanda "Itu bukannya{cps=8}.... sebentar{cps=5}.."
     amanda "Gak mungkin sih{cps=5}..."
@@ -250,18 +256,24 @@ label start:
 
     show amanda-senyum with Dissolve(0.3)
     amanda "Bener, tapi semuanya aneh, masa pelakunya secara sukarela menyerahkan diri?"
-
-    show amanda-bingung with dissolve
+    
+    hide amanda-senyum
+    show amanda-bingung 
+    with dissolve
     amanda "Sudah gitu, masa uangnya full dipake buat judi online?"
     amanda "Kalaupun benar dia melakukan itu, kenapa dia langsung ngaku dan kenapa uang sebesar itu bisa buat judol doang.."
 
     joko "Iya sih, kalau dipikir-pikir memang ada yang janggal."
     joko "{size=40}Kecuali, mungkin, dia bukan pelaku sebenarnya!{/size}"
-
-    show amanda-shock with dissolve
+    
+    hide amanda-bingung
+    show amanda-shock 
+    with dissolve
     amanda "Bisa jadi dia hanya pion untuk menyembunyikan pelaku sebenarnya!"
-
-    show amanda-bingung with dissolve
+    
+    hide amanda-shock
+    show amanda-bingung 
+    with dissolve
     amanda "Kalau begitu apa yang harus kita lakukan?"
 
     joko "Aku harus segera ke tukang gorengan itu!"
@@ -415,7 +427,7 @@ label choicemasuk_pintu:
             scene bg blackout with dissolve
             "Gelap banget..."
             
-            # play music "suarapintu.mp3"
+            play sound "pintu.mp3"
 
             show ceo-rokok with dissolve
 
@@ -425,11 +437,15 @@ label choicemasuk_pintu:
             unk "Ohh tentu pak, sudah disetujui oleh pak ketua selama bapak memenuhi bagian persetujuan bapak juga."
 
             hide ceo-rokok
-            show ceo-sombong with dissolve
+            show ceo-sombong 
+            with dissolve
+
             ceo "Ohh iya aman dong, nah sekarang pertanyaannya, siapa yang jadi korbannya?"
             unk "Aman saja, itu bisa kita atur pak"
-
+            
+            hide ceo-sombong 
             show ceo-ketawa
+            with dissolve
             ceo "Hahahaha, baik pak, atur saja!"
 
             "Wah, sepertinya aku menemukan sesuatu yang penting!"
@@ -470,11 +486,15 @@ label choicemasuk_pintu:
             unk "Ohh tentu pak, sudah disetujui oleh pak ketua selama bapak memenuhi bagian persetujuan bapak juga."
 
             hide ceo-rokok
-            show ceo-sombong with dissolve
+            show ceo-sombong 
+            with dissolve
+
             ceo "Ohh iya aman dong, nah sekarang pertanyaannya, siapa yang jadi korbannya?"
             unk "Aman saja, itu bisa kita atur pak"
 
+            hide ceo-sombong
             show ceo-ketawa
+            with dissolve
             ceo "Hahahaha, baik pak, atur saja!"
 
             "Wah, sepertinya aku menemukan sesuatu yang penting!"
@@ -534,7 +554,7 @@ label choicemasuk_jendela:
         "Hmm, bagaimana aku ke lantai 14?"
 
         scene bg lift with dissolve
-        "{size=10} Aha itu dia {/size}"
+        "Aha itu dia"
         "Aku bisa menggunakan ini untuk ke lantai 14!"
 
         # scene bg liftvip with dissolve
@@ -569,7 +589,7 @@ label choicemasuk_jendela:
 
         "Berdebu sekali di sini.."
         "Apa gak pernah mereka bersihin?"
-        "Okee, sekarang waktuna menunggu mereka naik ke lantai 14."
+        "Okee, sekarang waktunya menunggu mereka naik ke lantai 14."
 
         # cutscene beberapa menit kemudian
         scene bg blackout with dissolve
@@ -609,11 +629,14 @@ label choicemasuk_jendela:
             unk "Ohh tentu pak, sudah disetujui oleh pak ketua selama bapak memenuhi bagian persetujuan bapak juga."
 
             hide ceo-rokok
-            show ceo-sombong with dissolve
+            show ceo-sombong 
+            with dissolve
             ceo "Ohh iya aman dong, nah sekarang pertanyaannya, siapa yang jadi korbannya?"
             unk "Aman saja, itu bisa kita atur pak"
 
+            hide ceo-sombong
             show ceo-ketawa
+            with dissolve
             ceo "Hahahaha, baik pak, atur saja!"
 
             "Wah, sepertinya aku menemukan sesuatu yang penting!"
@@ -651,11 +674,14 @@ label choicemasuk_jendela:
             unk "Ohh tentu pak, sudah disetujui oleh pak ketua selama bapak memenuhi bagian persetujuan bapak juga."
 
             hide ceo-rokok
-            show ceo-sombong with dissolve
+            show ceo-sombong 
+            with dissolve
             ceo "Ohh iya aman dong, nah sekarang pertanyaannya, siapa yang jadi korbannya?"
             unk "Aman saja, itu bisa kita atur pak"
 
+            hide ceo-sombong
             show ceo-ketawa
+            with dissolve
             ceo "Hahahaha, baik pak, atur saja!"
 
             "Wah, sepertinya aku menemukan sesuatu yang penting!"
@@ -707,7 +733,7 @@ label bridging_2:
     
     akuntan "Boleh dong!"
     
-    joko "Apa hubungan paman dengna kantor tadi?"
+    joko "Apa hubungan paman dengan kantor tadi?"
     
     akuntan "Aku adalah seorang akuntan di perushaan itu."
     akuntan "Aku baru masuk beberapa bulan yang lalu"
@@ -764,7 +790,8 @@ label bridging_2:
     scene bg basement with dissolve
     play music "rippleair.mp3"
     show akuntan at left
-    show amanda-senyum at right with dissolve
+    show amanda-senyum at right 
+    with dissolve
     amanda 'Halo Joko dan pak Santoso. Aku dengar kalian mendapatkan clue baru?'
     joko"Iya, aku berhasil 'menyelinap' ke dalam kantor dan mendapatkan sesuatu yang menarik. Coba lihat ini."
 
@@ -783,7 +810,7 @@ label bridging_2:
         joko "Ini adalah rekaman video percakapan antara CEO dan seseorang yang tidak dikenal.Visualnya buruk, tetapi aku rasa dapat didengar dengan cukup jelas."
         amanda "Hmm.... Aku seperti mengenal suaranya..."
         joko "Benarkah?"
-        amanda "Yaa, tapi sepertinya hanya perasaanku saja. ari mana kamu dapat rekaman ini?"
+        amanda "Yaa, tapi sepertinya hanya perasaanku saja. Dari mana kamu dapat rekaman ini?"
         scene bg basement with dissolve
         show akuntan at left
         show amanda-senyum at right
