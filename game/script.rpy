@@ -738,7 +738,7 @@ label bridging_2:
     
     joko "Apa hubungan paman dengan kantor tadi?"
     
-    akuntan "Aku adalah seorang akuntan di perushaan itu."
+    akuntan "Aku adalah seorang akuntan di perusahaan itu."
     akuntan "Aku baru masuk beberapa bulan yang lalu"
 
     joko "Aku yakin paman sadar bahwa aku bukanlah karyawan di perusahaan itu."
@@ -764,7 +764,7 @@ label bridging_2:
     akuntan 'Ketika saya tanyakan kejanggalan ini kepada atasan saya, Beliau hanya mengatakan "Sudah, lakukan saja tugasmu. Anak baru sepertimu tidak usah banyak tanya". ' 
 
     joko 'Wah, ini memperkuat asumsi awalku bahwa benar-benar terjadi penggelapan pajak.'
-    joko 'Bagaimana orang-orang itu bisa sangat tega ya? Menggunakan pajak dari rakyat kecil untuk kepentingan peibadinya!'
+    joko 'Bagaimana orang-orang itu bisa sangat tega ya? Menggunakan pajak dari rakyat kecil untuk kepentingan pribadinya!'
 
     akuntan 'Ya begitulah orang-orang dengan kuasa. Untung saya sudah lama tidak bayar pajak, Haha.'
 
