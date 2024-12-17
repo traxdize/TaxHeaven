@@ -1069,7 +1069,6 @@ label act2_converge_final:
     scene bg elevatorfinal with dissolve
     "Itu dia elevatornya!!"
     scene bg black
-    play sound "teriak.mp3"
     amanda "BERHENTIIII!!!!!!!!!!!!!!!!"
     jump bridge_ending
 
