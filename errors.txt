@@ -2,9 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 912: expected simple expression
-    play music "tegang.mp3" volume 0.7 fadein
-                                             ^
+File "game/script.rpy", line 440: end of line expected.
+    show ceo-ngeroko_cropped with dissolve at right
+                                           ^
 
-Ren'Py Version: Ren'Py 8.3.2.24090902
-Tue Dec 17 10:12:39 2024
+File "game/script.rpy", line 441: end of line expected.
+    show bapa-senyum biasa_cropped with dissolve at left
+                                                 ^
+
+Ren'Py Version: Ren'Py 8.3.3.24111502
+Tue Dec 17 11:34:33 2024

@@ -62,6 +62,7 @@ define hakim = Character("Hakim", color="#16dfdf", callback=type_soundsoft)
 define center = Position(xalign=0.5, yalign=0.5)
 define left = Position(xalign=0.1, yalign=0.5)
 define right = Position(xalign=0.9, yalign=0.5)
+define rightcenter = Position(xalign=0.7, yalign=0.5)
 
 label start:
     $ goodclue1= False
@@ -98,7 +99,8 @@ else:
 
     if badend_n:
         label badend_nama:
-            show lift_chillguy
+            show bg horror with dissolve
+            show chillguy_cropped
             "DIBILANG NAMA LU JOKO!"
             return
     
@@ -240,7 +242,7 @@ else:
 
     ## KORAN SCENE
 
-    scene koran with dissolve
+    scene bg koran with dissolve
 
     amanda "Kamu inget gak ini?"
     amanda "Berita tahun lalu yang uang pajak kota kita hilang sebesar Rp4.5 miliar!"
@@ -354,11 +356,11 @@ label choicemasuk_pintu:
         "Tapi sebelum itu aku harus mencari cara untuk keliling gedung ini dengan aman"
         "Cepatlah pergi!!"
 
-        play music "langkahkaki.mp3"
+        play sound "langkahkaki.mp3"
         "Oke, dia sudah pergi"
         "Hmmm, mana saklarnya?"
 
-        play music "lampu.mp3"
+        play sound "lampu.mp3"
         stop music
 
         scene bg janitor with dissolve
@@ -371,7 +373,7 @@ label choicemasuk_pintu:
         "Phew, untung aman-aman aja."
         "Hmm, aku mendengar seseorang."
 
-        play music "telepon.mp3"
+        play sound "telepon.mp3"
 
         unk "Pak untuk transaksinya nanti di ruangan saya yang di lantai 14"
         unk "Baik pak, saya akan segera ke sana setelah telepon ini"
@@ -380,9 +382,11 @@ label choicemasuk_pintu:
         "Tapi sebelum itu aku harus mencari cara untuk keliling gedung ini dengan aman"
         "Cepatlah pergi!!"
 
-        play music "langkahkaki.mp3"
+        play sound "langkahkaki.mp3"
         "Oke, dia sudah pergi"
         "Hmmm, mana saklarnya?"
+
+        play sound "lampu.mp3"
 
         scene bg kantor with dissolve
         "Hehe, aku mempunyai ide bagus!"
@@ -403,10 +407,10 @@ label choicemasuk_pintu:
         scene bg lantai14 with dissolve
         "Oke, sekarang yang mana ruangannya?"
 
-        # scene bg pintuceo
+        scene bg pintu ceo with dissolve    
         "Ruang CEO? Sepertinya penting."
 
-        # scene bg ruangceo
+        scene bg ruangceo with dissolve
         "Aku harus mencari cara untuk menangkap pembicaraan mereka nanti"
 
         menu:
@@ -416,14 +420,16 @@ label choicemasuk_pintu:
                 jump choicehide_alternate
 
         label choicehide_ventilasi:
-            # scene bg ventilasi
+            scene bg ventilasi with dissolve
             "Nah, aku bisa menyelipkan HPku di sini dan merekam video!"
 
-            scene bg blackout with dissolve
+
             "Mmhmm, susah juga.."
+            scene bg ventilasihp with dissolve
             
-            # scene bg ruangceo
             "Nah oke, sekarang sudah pas."
+
+            scene bg ruangceo
             "Sekarang aku harus sembunyi."
             "Wah, ukuran lemari itu pas sekali"
 
@@ -432,36 +438,40 @@ label choicemasuk_pintu:
             
             play sound "pintu.mp3"
 
-            show ceo-rokok with dissolve
+            show ceo-ngeroko_cropped at right with dissolve
+            show bapa-senyum biasa_cropped at left with dissolve
 
             ceo "Silahkan masuk pak, silahkan duduk dulu."
             unk "Terima kasih pak"
             ceo "Jadi bagaimana persetujuan kita? Jadikah?"
             unk "Ohh tentu pak, sudah disetujui oleh pak ketua selama bapak memenuhi bagian persetujuan bapak juga."
 
-            hide ceo-rokok
-            show ceo-sombong 
+            hide ceo-ngeroko_cropped
+            show ceo-sombong_cropped at right
             with dissolve
 
             ceo "Ohh iya aman dong, nah sekarang pertanyaannya, siapa yang jadi korbannya?"
             unk "Aman saja, itu bisa kita atur pak"
             
-            hide ceo-sombong 
-            show ceo-ketawa
-            with dissolve
+            hide bapa-senyum biasa_cropped
+            hide ceo-sombong_cropped 
+            show ceo-ketawa sinis_cropped at right
+            show bapa-senyum ketawa_cropped at left
             ceo "Hahahaha, baik pak, atur saja!"
 
+            play music "tegang.mp3"
             "Wah, sepertinya aku menemukan sesuatu yang penting!"
             "Aku harus menunggu sampai mereka pergi."
 
-            scene bg blackout with dissolve
-            centered "{color=#ffffff}{cps=10}Setelah beberapa menit"
+            scene bg cari jalan with dissolve
 
-            # scene bg ruangceo
+            scene bg ruangceo with dissolve
             "Oke mereka sudah pergi, aku harus mengambil handphoneku"
+
+            scene bg ventilasihp with dissolve
             "Oke ayo kita cek"
 
-            # scene bg blackout
+            scene bg hpgelap with dissolve
             "Wah gelap doang.."
             "Tak apa-apa, setidaknya ada suara mereka."
 
@@ -470,35 +480,44 @@ label choicemasuk_pintu:
             jump bridging_2
 
         label choicehide_alternate:
-            # scene bg jendelakorden
+            scene bg jendelakorden with dissolve
             "Nah dari sini sepertinya bisa ngerekam semuanya."
+
+            scene bg ruangkosong with dissolve
 
             "Oke belum ada orang, aku harus mencari tempat yang bisa melihat ruangan sebelah."
 
-            # scene bg ruangceogelap with dissolve
-            "Nice, kelihatan semuanya. Sekarang tinggal menunggu mereka datang."
-            # play music "footsteps.mp3"
-            "Nah itu pasti mereka, mana handphoneku.."
+            scene bg liatruangsebelah with dissolve
+            "Dari sini sepertinya bisa.."
 
-            # scene bg uikamera with dissolve
-            show ceo-rokok with dissolve
+
+            "Nice, kelihatan semuanya. Sekarang tinggal menunggu mereka datang."
+            play sound "langkahkaki.mp3"
+            "Nah itu pasti mereka, mana handphoneku.."
+            scene bg rekamceo with dissolve
+
+            show ceo-ngeroko_cropped at rightcenter with dissolve
+            show bapa-senyum biasa_cropped at left with dissolve
 
             ceo "Silahkan masuk pak, silahkan duduk dulu."
             unk "Terima kasih pak"
             ceo "Jadi bagaimana persetujuan kita? Jadikah?"
             unk "Ohh tentu pak, sudah disetujui oleh pak ketua selama bapak memenuhi bagian persetujuan bapak juga."
 
-            hide ceo-rokok
-            show ceo-sombong 
+            hide ceo-ngeroko_cropped
+            show ceo-sombong_cropped at rightcenter
             with dissolve
 
             ceo "Ohh iya aman dong, nah sekarang pertanyaannya, siapa yang jadi korbannya?"
             unk "Aman saja, itu bisa kita atur pak"
-
-            hide ceo-sombong
-            show ceo-ketawa
-            with dissolve
+            
+            hide bapa-senyum biasa_cropped
+            hide ceo-sombong_cropped 
+            show ceo-ketawa sinis_cropped at rightcenter
+            show bapa-senyum ketawa_cropped at left
             ceo "Hahahaha, baik pak, atur saja!"
+
+            play music "tegang.mp3"
 
             "Wah, sepertinya aku menemukan sesuatu yang penting!"
             "Aku harus menunggu sampai mereka pergi dan segera pergi dari sini."
@@ -510,24 +529,23 @@ label choicemasuk_pintu:
 return
 
 label choicemasuk_jendela:
-    # scene bg emptyroom
     play sound "Manjat.mp3"
-    scene bg emptyroom ## placeholder
+    scene bg emptyroom with dissolve
 
     "Ah, untungnya sebuah ruangan kosong, tapi aku harus segera keluar!"
 
-    # play music "footsteps.mp3"
+    play sound "langkahkaki.mp3"
 
     "WADUH AKU HARUS CARI TEMPAT SEMBUNYI!"
 
     menu:
         "Sembunyi di bawah meja":
             jump choicehide_meja
-        "Sembunyi di ruangan sebelah":
+        "Sembunyi di belakang papan":
             jump choicehide_papan
     
     label choicehide_meja:
-        # scene bg meja with dissolve
+        scene bg meja with dissolve
         "Aduduh, kepalaku kejedot.."
         "Hmm, aku mendengar seseorang.."
 
@@ -537,7 +555,7 @@ label choicemasuk_jendela:
         jump jendelaconvergent
 
     label choicehide_papan:
-        # scene bg papan with dissolve
+        scene bg papan with dissolve
         "Aduduh, tanganku kegores.."
         "Hmm, aku mendengar seseorang.."
 
@@ -557,11 +575,12 @@ label choicemasuk_jendela:
         scene bg koridor with dissolve
         "Hmm, bagaimana aku ke lantai 14?"
 
+        play sound "lift.mp3"
         scene bg lift with dissolve
         "Aha itu dia"
         "Aku bisa menggunakan ini untuk ke lantai 14!"
 
-        # scene bg liftvip with dissolve
+        scene bg liftkeycard with dissolve
         "Hmmm, butuh keycard.."
 
         show lift_chillguy with dissolve
@@ -569,7 +588,7 @@ label choicemasuk_jendela:
 
         joko "Oh iya, maaf ya."
 
-        # scene bg liftkeycard with dissolve
+        show bg liftvip with dissolve
         joko "Oh iya pak, boleh pencet untuk lantai 14 tidak ya?"
         chg "Ohh boleh.. boleh.."
 
@@ -578,31 +597,32 @@ label choicemasuk_jendela:
         scene bg lantai14 with dissolve
         "Hmm oke, sekarang aku harus mencari ruangan yang dapat melihat transaksi itu."
 
-        # scene bg bukapintu ato mungkin pake sound effect aja
+        scene bg bukapintu with dissolve
 
         "Sepertinya terkunci..."
 
         scene bg lantai14 with dissolve
         "Ah semua ruangan di sini terkunci, bagaimana ya?"
 
-        # scene bg ventilasi with dissolve
+        scene bg ventilasilagi with dissolve
         "Hmm, bisa di sana."
 
+        scene bg bukaventilasi with dissolve
         "Oke, memang bisa ternyata."
         "Aku akan lewat sini."
 
+        scene bg dalemventilasi with dissolve
         "Berdebu sekali di sini.."
+        scene bg ventilasikotor with dissolve
         "Apa gak pernah mereka bersihin?"
         "Okee, sekarang waktunya menunggu mereka naik ke lantai 14."
 
-        # cutscene beberapa menit kemudian
-        scene bg blackout with dissolve
-        centered "{color=#ffffff}{cps=10}Setelah beberapa menit"
+        scene bg cari jalan with dissolve
 
-        # scene bg koridorjalan with dissolve
+        scene bg koridor with dissolve
         "Nah itu mereka, sekarang aku harus cari tahu transaksinya di ruangan mana."
 
-        # scene bg persimpangan ventilasi
+        scene bg persimpangan ventilasi with dissolve
         "Sial, sebuah persimpangan. Aku harus lewat mana?"
 
         menu:
@@ -614,35 +634,44 @@ label choicemasuk_jendela:
                 jump choicevent_kiri
 
         label choicevent_kanan:
-            # scene bg ventilasi with dissolve
+            scene bg ventilasikanan with dissolve
+            play sound "langkahkaki.mp3"
             "Suaranya membesar..."
             "Sepertinya aku di jalur yang tepat."
 
-            # scene bg ruangceo with dissolve
+            scene bg ruangceovent with dissolve
             "Aku pas di atas mereka!"
             "Aku harus merekam ini."
 
-            scene bg blackout with dissolve
+            scene bg rekamceovent with dissolve
             "Aduh gelap banget... gak keliatan apa-apa di kamera."
             "Suaranya masih terdengar sih."
             "Yasudahlah tidak apa-apa."
-
-            # scene bg ruangceo with dissolve
             
+            scene bg ruangceo with dissolve
+            show ceo-ngeroko_cropped at rightcenter with dissolve
+            show bapa-senyum biasa_cropped at left with dissolve
+
+            ceo "Silahkan masuk pak, silahkan duduk dulu."
+            unk "Terima kasih pak"
             ceo "Jadi bagaimana persetujuan kita? Jadikah?"
             unk "Ohh tentu pak, sudah disetujui oleh pak ketua selama bapak memenuhi bagian persetujuan bapak juga."
 
-            hide ceo-rokok
-            show ceo-sombong 
+            hide ceo-ngeroko_cropped
+            show ceo-sombong_cropped at rightcenter
             with dissolve
+
             ceo "Ohh iya aman dong, nah sekarang pertanyaannya, siapa yang jadi korbannya?"
             unk "Aman saja, itu bisa kita atur pak"
-
-            hide ceo-sombong
-            show ceo-ketawa
-            with dissolve
+            
+            hide bapa-senyum biasa_cropped
+            hide ceo-sombong_cropped 
+            show ceo-ketawa sinis_cropped at rightcenter
+            show bapa-senyum ketawa_cropped at left
             ceo "Hahahaha, baik pak, atur saja!"
-
+            
+            scene bg ruangceovent with dissolve
+            play music "tegang.mp3"
             "Wah, sepertinya aku menemukan sesuatu yang penting!"
             "Aku harus menunggu sampai mereka pergi dan segera pergi dari sini."
 
@@ -651,42 +680,61 @@ label choicemasuk_jendela:
             jump bridging_2
 
         label choicevent_kiri:
-            # scene bg ventilasi with dissolve
+            scene bg ventjauh with dissolve
+            play sound "langkahkaki.mp3" volume 0.2
             "Ah, suaranya makin menjauh."
             "Aku tidak punya pilihan, aku harus turun dari sini!"
+            scene bg ventturun with dissolve
             "Sepertinya aku bisa keluar lewat sini.."
+
+            play sound "Manjat.mp3"
 
             scene bg blackout with dissolve
             "Sepertinya ruangan kosong, tapi gelap sekali...."
 
-            # play suarajatuh.mp4
-
             unk "Suara apa itu?"
             ceo "Mungkin hanya barang terjatuh?"
 
-            # scene bg meja with dissolve
+            "Hmm, ini saklarnya.."
+
+            play sound "lampu.mp3"
+
+            scene bg ruangkosong with dissolve
 
             "Hampir saja aku ketahuan.."
+            scene bg liatruangsebelah with dissolve
             "Hmm, aku bisa melihat ruangan samping dari jendela ini!"
 
-            # scene bg ruangceo with dissolve
+            scene bg ruangceo with dissolve
             "Aku harus merekam ini..."
 
-            play music "bisik.mp3"
+            scene bg rekamceo with dissolve
 
+            play sound "bisik.mp3"
+            play sound "pintu.mp3"
+
+            show ceo-ngeroko_cropped at rightcenter with dissolve
+            show bapa-senyum biasa_cropped at left with dissolve
+
+            ceo "Silahkan masuk pak, silahkan duduk dulu."
+            unk "Terima kasih pak"
             ceo "Jadi bagaimana persetujuan kita? Jadikah?"
             unk "Ohh tentu pak, sudah disetujui oleh pak ketua selama bapak memenuhi bagian persetujuan bapak juga."
 
-            hide ceo-rokok
-            show ceo-sombong 
+            hide ceo-ngeroko_cropped
+            show ceo-sombong_cropped at rightcenter
             with dissolve
+
             ceo "Ohh iya aman dong, nah sekarang pertanyaannya, siapa yang jadi korbannya?"
             unk "Aman saja, itu bisa kita atur pak"
-
-            hide ceo-sombong
-            show ceo-ketawa
-            with dissolve
+            
+            hide bapa-senyum biasa_cropped
+            hide ceo-sombong_cropped 
+            show ceo-ketawa sinis_cropped at rightcenter
+            show bapa-senyum ketawa_cropped at left
             ceo "Hahahaha, baik pak, atur saja!"
+
+            play music "tegang.mp3"
 
             "Wah, sepertinya aku menemukan sesuatu yang penting!"
             "Aku harus segera melaporkan ini!"
