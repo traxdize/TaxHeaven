@@ -99,9 +99,11 @@ else:
 
     if badend_n:
         label badend_nama:
-            show bg horror with dissolve
+            scene bg horror with dissolve
             show chillguy_cropped
             "DIBILANG NAMA LU JOKO!"
+            scene bg darksouls with dissolve
+            pause (2)
             return
     
     stop music
