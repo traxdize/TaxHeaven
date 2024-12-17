@@ -138,7 +138,7 @@ else:
 
     show seller at center with Dissolve(0.6) 
 
-    joko "Bang minta tahu gorengnya 5 biji ya"
+    joko "Kang minta tahu gorengnya 5 biji ya"
     seller "Siapp mas!🫡"
     
     play sound "key item obtained.mp3"
@@ -243,7 +243,7 @@ else:
     scene koran with dissolve
 
     amanda "Kamu inget gak ini?"
-    amanda "Berita tahun lalu yang uang pajak kota kita hilang sebesar Rp3.5 miliar!"
+    amanda "Berita tahun lalu yang uang pajak kota kita hilang sebesar Rp4.5 miliar!"
 
     joko "Tidak mungkin deh, pelakunya udah ditangkep."
 
@@ -280,7 +280,7 @@ else:
     scene bg gorengan with dissolve
     show seller with dissolve
     
-    joko "Punten bang, boleh tanya gak?"
+    joko "Punten kang, boleh tanya gak?"
     seller "Wah ada apa ya Joko?"
     seller "Makanan saya bersih lho!"
 
