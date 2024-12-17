@@ -1232,12 +1232,3 @@ label bridge_ending:
 
     hakim "SIDANG KASUS PENGGELAPAN PAJAK DAN KORUPSI PERUSAHAAN {b}Metecom{/b} DIMULAI"
     hakim "Untuk Joko silahkan berikan bukti yang Anda temukan"
-
-
-
-
-
-
-
-
-
