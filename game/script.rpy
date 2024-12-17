@@ -164,7 +164,7 @@ else:
     stop music
     play music "<from 26.6 to 94.0>trailer.mp3" volume 0.3
 
-    play sound "<from 2.0 to 6.0>doorslam.mp3"
+    play sound "pintu.mp3"
     pause(2)
 
     scene bg cek kertas with Fade(0.2, 0.2, 1, color="#FFFFFF")
@@ -987,7 +987,7 @@ label act2:
         "Akses pihak luar.. oke mari kita download ini!"
         stop sound
         scene bg black
-        play sound "doorslam.mp3"
+        play sound "pintu.mp3"
         "!!!"
         scene bg serverroom
         show akuntan at right with dissolve
@@ -1018,10 +1018,13 @@ label act2:
         joko "Tidak apa-apa pak, saya akan mencoba untuk dengan cepat mengambil datanya"
         scene bg black with Dissolve(1.0)
 
-        centered "{color=#ffffff}{size=40}{cps=2}AKUNTAN POV"
+        centered "{color=#ffffff}{size=40}AKUNTAN POV"
         scene bg database
-        ## play sound "knock.mp3" #Belum ada
-        play sound "doorslam.mp3"
+        play sound "ketuk.mp3" volume 0.5 #Belum ada
+        pause(2.0)
+        play sound "pintu.mp3" 
+        pause(3.0)
+
         show ceo-sombong with dissolve
         akuntan "Permisi Pak.. saya sudah menyiapkan laporan keuangan bulan ini, apakah bapak ingin melihatnya sekarang ? "
         hide ceo-sombong
@@ -1031,7 +1034,7 @@ label act2:
         ceo "Baiklah kalau begitu.."
         scene bg black
         "Semua ada di tangan mu, Joko!"
-        centered "{color=#ffffff}{size=40}{cps=2}JOKO POV"
+        centered "{color=#ffffff}{size=40}JOKO POV"
         scene bg database with dissolve
         "Mereka sudah pergi..."
         scene bg serverroom with dissolve
@@ -1045,7 +1048,7 @@ label act2:
         "Akses pihak luar.. oke mari kita download ini!"
         stop sound
         scene bg black
-        play sound "doorslam.mp3"
+        play sound "pintu.mp3"
         "!!!"
         ceo "Ah bisa-bisanya akuntan itu kehilangan laporannya.."
         ceo "?!??"
