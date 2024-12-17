@@ -103,11 +103,11 @@ else:
             return
     
     stop music
-    play music "type.mp3" loop volume 0.8
+    play sound "type.mp3" volume 0.8
 
     centered "{size=40}{cps=10}SABTU, 19 NOVEMBER 2023\n{cps=5}BANDUNG\n{cps=2}11:40"
 
-    stop music
+    stop sound
 
     play music "street.mp3" volume 0.7 loop
 
@@ -116,7 +116,7 @@ else:
     joko "Ah, kota Bandung{cps=5}..."
     "Menurutku kota ini bagus, ada banyak tempat indah dan banyak potensi."
     "Lokasinya yang berada di daerah bukit juga membuat kota ini bisa menjadi tempat wisata."
-    "Tetapi ada keganjalan, kota ini selalu begini selama 10 tahun terakhir,"
+    "Tetapi ada sesuatu yang aneh, kota ini selalu begini selama 10 tahun terakhir,"
     "hanya muncul bangunan kantor dan pabrik yang mengotori udara,"
     "wali kota sudah menjanjikan akan mengubahnya, "
     "tetapi selama ini tetap tidak ada apa-apa."
@@ -187,11 +187,11 @@ else:
 
     stop music fadeout 3.0
     scene bg black with Dissolve(2.0)
-    play music "type.mp3" loop volume 0.8
+    play sound "type.mp3" loop volume 0.8
 
     centered "{color=#ffffff}{size=60}{cps=2}ACT I"
 
-    stop music
+    stop sound
 
     ## ACT 1
 
@@ -822,7 +822,7 @@ label bridging_2:
             "Kasih nama distrik bisnisnya":
                 jump choicevent_disbis
         label choicevent_namaperusahaan:
-            joko "Rekaman ini diambil di gedung PT.Metecom."
+            joko "Rekaman ini diambil di gedung PT.{b}Metecom{/b}."
             joko "Kamu tahu sesuatu tentang perusahaan itu?"
             amanda "Ngak juga sih.."
             amanda "Oke kembali ke topik rekamannnya."
