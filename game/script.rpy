@@ -65,12 +65,22 @@ define right = Position(xalign=0.9, yalign=0.5)
 define rightcenter = Position(xalign=0.7, yalign=0.5)
 
 label start:
+    stop music
     $ goodclue1= False
     $ goodclue2 = False
     $ badclue1 = False
     $ badclue2 = False
     $ goodclueact2 = False
     $ badclueact2 =False
+
+    scene bg white with dissolve
+    show itb at center with Dissolve(1)
+
+    pause(2)
+
+    hide itb
+    scene bg blackout
+    with Dissolve(1)
 
 python:
     badend = 0
@@ -100,13 +110,14 @@ else:
     if badend_n:
         label badend_nama:
             scene bg horror with dissolve
-            show chillguy_cropped
+            show chillguy_cropped at center with Dissolve(2.0)
             "DIBILANG NAMA LU JOKO!"
-            scene bg darksouls with dissolve
-            pause (2)
+            hide chillguy_cropped
+            scene bg darksouls 
+            with dissolve
+            pause(2)
             return
     
-    stop music
     play sound "type.mp3" volume 0.8
 
     centered "{size=40}{cps=10}SABTU, 19 NOVEMBER 2023\n{cps=5}BANDUNG\n{cps=2}11:40"
@@ -286,7 +297,7 @@ else:
     
     joko "Punten kang, boleh tanya gak?"
     seller "Wah ada apa ya Joko?"
-    seller "Makanan saya bersih lho!"
+    seller "Makanan saya bersih loh!"
 
     joko "Bukan itu kang, bungkus gorengan yang kang pake biasanya dari mana ya?"
     seller "Oalah kirain, itu mah dari belakang noh"
@@ -467,6 +478,8 @@ label choicemasuk_pintu:
 
             scene bg cari jalan with dissolve
 
+            pause(1)
+
             scene bg ruangceo with dissolve
             "Oke mereka sudah pergi, aku harus mengambil handphoneku"
 
@@ -621,6 +634,8 @@ label choicemasuk_jendela:
 
         scene bg cari jalan with dissolve
 
+        pause(1)
+
         scene bg koridor with dissolve
         "Nah itu mereka, sekarang aku harus cari tahu transaksinya di ruangan mana."
 
@@ -757,7 +772,7 @@ label bridging_2:
     "Wah ada pintu darurat, coba lewat situ deh"
 
     scene bg fexit with dissolve    
-    "Lho, ini kan emergency exit, kenapa pintunya bisa terkunci?"
+    "Loh, ini kan emergency exit, kenapa pintunya bisa terkunci?"
     "Emang ada yang gak beres sama nih perusahaan."
 
     play sound "<from 5 to 8>langkahkaki.mp3"
@@ -840,8 +855,7 @@ label bridging_2:
     joko 'Halo Amanda, aku datang bersama akuntan bernama Santoso, dia akan membantu kita menyelesaikan kasus ini....'
 
     scene bg basement with dissolve
-    play music "tegang.mp3" volume 0.7 fadein 1.0
-    play sound "rippleair.mp3" loop volume 0.8
+    play music "rippleair.mp3" volume 0.8
     show akuntan at left
     show amanda-senyum at right 
     with dissolve
@@ -911,9 +925,6 @@ label bridging_2:
 
 
 label converge_bridge:
-    scene bg basement with dissolve
-    show akuntan at left
-    show amanda-senyum at right
 
     akuntan "Saya rasa ada suatu cara."
     akuntan "Setiap orang yang masuk ke area kantor umumnya memiliki kartu registrasi."
@@ -949,7 +960,7 @@ label converge_bridge:
     amanda "Huft.... Baiklah..."
 
     stop music fadeout 2.0
-    stop sound
+    
     scene bg black with Dissolve(2.0)
     play sound "type.mp3" volume 0.8
 
@@ -1004,7 +1015,7 @@ label act2:
         "Suruh akuntan memanggil CEO keluar":
             jump choiceevent_callout
     label choiceevent_distract:
-        play sound"bisik.mp3"
+        play sound "bisik.mp3"
         joko "Bagaimana jika paman membuat distraksi dan kemudian saya masuk kedalam ruangan database dan mengambil datanya secepat mungkin?"
         akuntan "Hmm mungkin itu bisa berhasil.. "
         akuntan "Aku akan mencoba untuk menyalakan alarm apinya dan setelah CEO tersebut keluar dari ruangan database kau harus langsung masuk kedalam."
@@ -1012,15 +1023,12 @@ label act2:
         scene bg falarmhallway with dissolve
         show akuntan with dissolve
         pause(1)
-        hide akuntan with dissolve
         scene bg database
         "Sekarang tinggal kita tunggu sampai...."
-        play sound "alarm.mp3" loop volume 0.4
-        play sound "rame.mp3"
+        play music "alarm.mp3" volume 0.5
         "Nah, itu dia.. sekarang dia akan..."
         show ceo-sombong with dissolve
         ceo "?!?!"
-        stop sound fadeout 0.7
         
         joko "PAK KEBAKARAN PAK CEPAT KELUARRRRRR!!!!"
         show ceo-sombong at right with dissolve
@@ -1028,6 +1036,7 @@ label act2:
         "Hm.. cepat juga dia lari."
         "Baiklah, waktunya beraksi!"
         scene bg serverroom with dissolve
+        stop music fadeout 0.7
         play sound "typing.mp3" loop volume 0.8
         "Oke, mari kita mulai..."
         "Database registrasi..."
@@ -1156,7 +1165,7 @@ label bridge_ending:
     
     stop music
     play music "alarm.mp3" volume 0.4
-    scene bg blackout with dissolve
+    scene bg cctv with dissolve
     
     satpam "Wah siapa itu, berlarian di lorong. Saya tidak pernah melihatnya di sini. PASTI PENYUSUP! Saya harus cepat-cepat telpon polisi!"
     
@@ -1223,14 +1232,114 @@ label bridge_ending:
 
     scene bg blackout with Dissolve(1)
     
+    jump ending
+
+label ending:
     play music "type.mp3" loop volume 0.8
     centered "{size=+10}{cps=10}Beberapa hari kemudian{cps=5}..."
 
     stop music
     play music "tegang.mp3" volume 0.5
-    scene bg sidang with Dissolve(1)
+    scene bg persidangan with Dissolve(1)
 
-    show hakim_cropped at center with dissolve
+    pause(0.5)
 
+    scene bg hakim 
+    show hakim_cropped at center 
+    with dissolve
+
+    play sound "hammer.mp3"
     hakim "SIDANG KASUS PENGGELAPAN PAJAK DAN KORUPSI PERUSAHAAN {b}Metecom{/b} DIMULAI"
     hakim "Untuk Joko silahkan berikan bukti yang Anda temukan"
+
+    scene bg ceo
+    show ceo-sombong at center
+    with dissolve
+    
+    if ((goodclue1 or goodclue2) and goodclueact2):
+        joko "Saya telah menemukan beberapa bukti untuk penggelapan pajak yang telah dilakukan oleh bapak"
+        joko "Saya harus mengakui bahwa saya memang melanggar beberapa aturan dengan secara illegal masuk ke gedung perusahaan metecom,"
+        joko "tetapi saya rela menerima hukumannya demi memperlihatkan kebenaran tentang kota ini."
+        joko "Pertama."
+
+        scene bg goodclue1 with dissolve
+
+        joko "Saya merekam perbincangan antara bapak CEO dengan pria yang merupakan perwakilan dari departemen keuangan yang memegak PAJAK KITA!!!"
+
+        scene bg hakim 
+        show hakim_cropped at center 
+        with dissolve
+
+        show usb at left
+
+        joko "Saya juga mendapatkan database dengan data yang menunjukkan bahwa pria yang berkaitan tersebut merupakan seseorang dari departemen keuangan"
+        joko "dan diluar itu saya mendapatkan bukti lain yang menunjukkan keseluruhan data keuangan dengan fakta asli bahwa perusahaan METECOM berkaitan dengan hilangnya pajak kota ini."
+
+        hide usb
+
+        hakim "Baik, ini merupakan bukti yang sangat kuat.. Kami sudah melakukan penyelidikan lebih lanjut lagi kepada perusahaan Metecom dan juga departemen keuangan dan iya sudah terbukti bahwa bapak melakukan kegiatan penggelapan pajak."
+
+        ceo "TIDAK SAYA MENOLAK ITU!"
+
+        scene bg ceo
+        show ceo-sombong at center
+        with dissolve
+
+        ceo "SEMUA BUKTI ITU PALSU. SEMUANYA BOHONGAN. ITU DATA PALSU DAN ITU REKAMAN DIBUAT AI!!!"
+        hakim "Maaf pak, ini semua merupakan bukti yang sudah terverifikasi dan sayangnya bapak terbukti bersalah."
+        hakim "Saya memutuskan untuk Bapak Abdul dimasukkan dalam penjara selama 70 tahun dan untuk bapak Kartono dimasukkan dalam penjara selama 50 tahun. Untuk departemen keuangan akan dilakukan penyelidikan lebih lanjut untuk mencari akar dari permasalahan ini."
+        
+        play sound "hammer.mp3"
+
+        stop music fadeout 1.0
+
+        scene bg blackout with Dissolve(1)
+
+        scene bg beberapatahun with Dissolve(1)
+
+        pause(2)
+
+        play music "warungsunda.mp3"
+
+        scene bg kota with Dissolve(1)
+
+        joko "Ah kota Bandung{cps=5}..."
+        "Setelah kejadian dulu, semuanya berubah, kota bandung ini menjadi lebih baik."
+        "Pajak sudah tersalurkan dengan benar dan kita bisa melihat pembangunan kota ini, sudah banyak gedung baru, bahkan ada pusat perbelanjaan baru sekarang bernama London Van Java."
+        "Tetapi sudah lama aku tidak mendengar dari Amanda setelah kejadian itu{cps=5}..{cps=40} Semoga dia tidak apa-apa. Tapi sekarang semuanya sudah lebih bagus{cps=4}..."
+
+        scene bg kota with dissolve
+
+        centered "{size=+10}{cps=4}THE END\nGOOD ENDING"
+
+        pause(2)
+
+        jump credit
+
+
+
+label credit:
+    scene bg blackout with Dissolve(1)
+    centered "{cps=150}Project Manager\nWillliam Anthony | 13223048 | Teknik Elektro | @wlmoi"
+    centered "{cps=150}Game Designer\nJonathan Otto | 18323017 | Teknik Biomedis | @jonathanotto_\nJoenathan Luther Sihotang | 13223022 | Teknik Elektro | @joe.luther1311"
+    centered "{cps=150}Script Writer/Story Developer\nJerry Alexander Tjoa | 18323026 | Teknik Biomedis | @jerrytjoa\nRaehan Fitrozikre | 132230014 | Teknik Elektro | @raehanfz"
+    centered "{cps=150}Programmer\nDarren Johan | 13223032 | Teknik Elektro | @darrenjohan_\nMichael Liebing | 18323016 | Teknik Biomedis | @m.liebing\nKenneth Alexander Jims | 13223004 | Teknik Elektro | @kenneth.a.jims"
+    centered "{cps=150}Graphic Designer/Illustrator\nTakAsu | @ArtTakasu | https://arttakasu.carrd.co/\nBonaventura Aditya J H P | 18023019 | Teknik Tenaga Listrik | @bona_ajeha.p\nStanislaus Justin Widjaya | 13223098 | Teknik Elektro | @justinwidjaya\nLionel Naythan Liu | 13223088 | Teknik Elektro | @lionel_naythan"
+    centered "{cps=150}UI/UX Designer\nVico A C Silalahi | 13223067 | Teknik Elektro | @vicoco.lahi "
+    centered "{cps=150}Sound Designer/Composer\neinhard Iven Winata | 13223009 | Teknik Elektro | @ri.winnata"
+    centered "{cps=150}Quality Assurance (QA) Tester\nMuhammad Nabil Raihan | 13223014 | Teknik Elektro | @bilrey_19\nAbdul Aziz | 13223023 | Teknik Elektro | @abdaziz_46"
+    centered "{cps=150}Publication Specialist\nWillliam Anthony | 13223048 | Teknik Elektro | @wlmoi"
+    centered "{cps=60}THANKYOU FOR PLAYING\nOUR GAME\n❤️"
+    show title at center with Dissolve(2.0)
+    pause(3)
+    stop music fadeout 2.0
+    hide title
+    scene bg blackout
+    with Dissolve(2.0)
+    return
+
+
+
+
+
+
