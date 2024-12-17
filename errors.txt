@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 912: expected simple expression
+    play music "tegang.mp3" volume 0.7 fadein
+                                             ^
+
+Ren'Py Version: Ren'Py 8.3.2.24090902
+Tue Dec 17 10:12:39 2024

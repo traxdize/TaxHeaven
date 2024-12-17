@@ -700,7 +700,7 @@ label choicemasuk_jendela:
 label bridging_2:
     stop music
 
-    play music "tegang.mp3" loop volume 0.8
+    play music "tegang.mp3" loop volume 0.7 fadein 1.0
     scene bg hallway_fexit with dissolve
 
     "Aku harus menemukan pintu keluar secepat mungkin, jangan sampai terlihat siapapun!"
@@ -790,7 +790,8 @@ label bridging_2:
     joko 'Halo Amanda, aku datang bersama akuntan bernama Santoso, dia akan membantu kita menyelesaikan kasus ini....'
 
     scene bg basement with dissolve
-    play music "rippleair.mp3"
+    play music "tegang.mp3" volume 0.7 fadein 1.0
+    play sound "rippleair.mp3" loop volume 0.8
     show akuntan at left
     show amanda-senyum at right 
     with dissolve
@@ -898,6 +899,7 @@ label converge_bridge:
     amanda "Huft.... Baiklah..."
 
     stop music fadeout 2.0
+    stop sound
     scene bg black with Dissolve(2.0)
     play sound "type.mp3" volume 0.8
 
@@ -907,13 +909,19 @@ label converge_bridge:
 
 label act2:
     #kantor depan
+    play music "tegang.mp3" volume 0.7 fadein 1.0
     scene bg officefront with dissolve
+    play sound "langkahkaki.mp3"
+    pause(0.5)
     show akuntan at center with dissolve
+    pause(0.1)
+    stop sound
     akuntan "Baik kita akan menuju kantor saya dulu untuk menentukan rencana berikutnya"
     joko"Baik akan aku ikutin paman"
-
+    play sound "pintu.mp3"
     scene bg officetables with dissolve
     show akuntan with dissolve
+    
     akuntan "Oke aku mengetahui lokasi databasenya berada di lantai 13, tetapi aku yakin kita perlu akses khusus untuk mengakses databasenya. "
     akuntan "Apakah kamu yakin kamu bisa membobol database tersebut ? "
 
@@ -946,6 +954,7 @@ label act2:
         "Suruh akuntan memanggil CEO keluar":
             jump choiceevent_callout
     label choiceevent_distract:
+        play sound"bisik.mp3"
         joko "Bagaimana jika paman membuat distraksi dan kemudian saya masuk kedalam ruangan database dan mengambil datanya secepat mungkin?"
         akuntan "Hmm mungkin itu bisa berhasil.. "
         akuntan "Aku akan mencoba untuk menyalakan alarm apinya dan setelah CEO tersebut keluar dari ruangan database kau harus langsung masuk kedalam."
@@ -957,22 +966,26 @@ label act2:
         scene bg database
         "Sekarang tinggal kita tunggu sampai...."
         play sound "alarm.mp3" loop volume 0.4
+        play sound "rame.mp3"
         "Nah, itu dia.. sekarang dia akan..."
         show ceo-sombong with dissolve
         ceo "?!?!"
         stop sound fadeout 0.7
+        
         joko "PAK KEBAKARAN PAK CEPAT KELUARRRRRR!!!!"
         show ceo-sombong at right with dissolve
         hide ceo-sombong with fade
         "Hm.. cepat juga dia lari."
         "Baiklah, waktunya beraksi!"
         scene bg serverroom with dissolve
+        play sound "typing.mp3" loop volume 0.8
         "Oke, mari kita mulai..."
         "Database registrasi..."
         "Database akuntan.."
         "Nah ini dia database akses.. "
         "Mari kita lihat...Hmmm akses dalam beberapa hari lalu"
         "Akses pihak luar.. oke mari kita download ini!"
+        stop sound
         scene bg black
         play sound "doorslam.mp3"
         "!!!"
@@ -999,6 +1012,7 @@ label act2:
         jump act2_converge_final
     
     label choiceevent_callout:
+        play sound "bisik.mp3"
         joko "Bagaimana jika paman mencoba untuk mendistraksi CEO dan selama paman mendistraksi dia saya akan mencoba untuk menyelinap masuk dan mengambil datanya."
         akuntan "Hmmm baiklah mungkin itu bisa berhasil, tapi saya tidak bisa menjanjikan saya bisa mendistraksinya dengan lama"
         joko "Tidak apa-apa pak, saya akan mencoba untuk dengan cepat mengambil datanya"
@@ -1021,6 +1035,7 @@ label act2:
         scene bg database with dissolve
         "Mereka sudah pergi..."
         scene bg serverroom with dissolve
+        play sound "typing.mp3"
         "Oke... Hmmmm..."
         "Oke, mari kita mulai..."
         "Database registrasi..."
@@ -1028,6 +1043,7 @@ label act2:
         "Nah ini dia database akses.. "
         "Mari kita lihat...Hmmm akses dalam beberapa hari lalu"
         "Akses pihak luar.. oke mari kita download ini!"
+        stop sound
         scene bg black
         play sound "doorslam.mp3"
         "!!!"
@@ -1035,6 +1051,7 @@ label act2:
         ceo "?!??"
         ceo "Hmm apakah aku tadi hanya membayangkan ada seseorang disini?"
         scene bg serverroom with dissolve
+        play sound "manjat.mp3"
         ceo "Ah aku pasti stress karena akuntan tadi.."
         $ badclueact2 =True
         jump act2_converge_final
@@ -1049,12 +1066,13 @@ label act2_converge_final:
     scene bg elevatorfinal with dissolve
     "Itu dia elevatornya!!"
     scene bg black
+    play sound "teriak.mp3"
     amanda "BERHENTIIII!!!!!!!!!!!!!!!!"
     jump bridge_ending
 
 label bridge_ending:
     scene bg elevatorfinal
-    play music "tegang.mp3"
+    play music "tegang.mp3" volume 0.7 fadein 1.0
     show akuntan at left
     show amanda-shock_cropped at right
 
