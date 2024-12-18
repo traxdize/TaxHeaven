@@ -70,7 +70,7 @@ label splashscreen:
     show itb at center with Dissolve(1)
     with Pause(2)
     hide itb with Dissolve(1)
-    show text "{color=#000000}A Kelompok n's PKWN Final Project{/color}" with Dissolve(1)
+    show text "{color=#000000}Group 7 of PKWN Final Project{/color}" with Dissolve(1)
     with Pause(2)
     hide text with Dissolve(1)
     return
