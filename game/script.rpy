@@ -64,6 +64,17 @@ define left = Position(xalign=0.1, yalign=0.5)
 define right = Position(xalign=0.9, yalign=0.5)
 define rightcenter = Position(xalign=0.7, yalign=0.5)
 
+label splashscreen:
+    scene bg white with Dissolve(1)
+    with Pause(1)
+    show itb at center with Dissolve(1)
+    with Pause(2)
+    hide itb with Dissolve(1)
+    show text "{color=#000000}A Kelompok n's PKWN Final Project{/color}" with Dissolve(1)
+    with Pause(2)
+    hide text with Dissolve(1)
+    return
+
 label start:
     stop music
     $ goodclue1= False
