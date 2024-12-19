@@ -64,17 +64,6 @@ define left = Position(xalign=0.1, yalign=0.5)
 define right = Position(xalign=0.9, yalign=0.5)
 define rightcenter = Position(xalign=0.7, yalign=0.5)
 
-label splashscreen:
-    scene bg white with Dissolve(1)
-    with Pause(1)
-    show itb at center with Dissolve(1)
-    with Pause(2)
-    hide itb with Dissolve(1)
-    show text "{color=#000000}Group 7 of PKWN Final Project{/color}" with Dissolve(1)
-    with Pause(2)
-    hide text with Dissolve(1)
-    return
-
 label start:
     stop music
     $ goodclue1= False
@@ -89,7 +78,16 @@ label start:
 
     pause(2)
 
-    hide itb
+    hide itb with Dissolve(1)
+    show text "{color=#000000}{size=+40}Group 7 of PKWN Final Project{/color}" with Dissolve(1)
+    with Pause(2)
+
+    hide text with Dissolve(1)
+    show text "{color=#000000}{size=+10}Disclaimer\nTempat dan nama karakter yang digunakan \npada cerita ini adalah fiksi sehingga segala \nkesamaan yang ditemukan hanyalah kebetulan." with Dissolve(1)
+    
+    pause(3)
+
+    hide text
     scene bg blackout
     with Dissolve(1)
 
@@ -1281,14 +1279,14 @@ label ending:
         show hakim_cropped at center 
         with dissolve
 
-        show usb at left
+        show usb at left with dissolve
 
         joko "Saya juga mendapatkan database dengan data yang menunjukkan bahwa pria yang berkaitan tersebut merupakan seseorang dari departemen keuangan"
         joko "dan diluar itu saya mendapatkan bukti lain yang menunjukkan keseluruhan data keuangan dengan fakta asli bahwa perusahaan METECOM berkaitan dengan hilangnya pajak kota ini."
 
-        hide usb
+        hide usb with dissolve
 
-        hakim "Baik, ini merupakan bukti yang sangat kuat.. Kami sudah melakukan penyelidikan lebih lanjut lagi kepada perusahaan Metecom dan juga departemen keuangan dan iya sudah terbukti bahwa bapak melakukan kegiatan penggelapan pajak."
+        hakim "Baik, ini merupakan bukti yang sangat kuat.. Kami sudah melakukan penyelidikan lebih lanjut lagi kepada perusahaan {b}Metecom{/b} dan juga departemen keuangan dan iya sudah terbukti bahwa bapak Abdul, CEO {b}Metecom{/b}, melakukan kegiatan penggelapan pajak."
 
         ceo "TIDAK SAYA MENOLAK ITU!"
 
@@ -1297,6 +1295,11 @@ label ending:
         with dissolve
 
         ceo "SEMUA BUKTI ITU PALSU. SEMUANYA BOHONGAN. ITU DATA PALSU DAN ITU REKAMAN DIBUAT AI!!!"
+        
+        scene bg hakim 
+        show hakim_cropped at center 
+        with dissolve
+        
         hakim "Maaf pak, ini semua merupakan bukti yang sudah terverifikasi dan sayangnya bapak terbukti bersalah."
         hakim "Saya memutuskan untuk Bapak Abdul dimasukkan dalam penjara selama 70 tahun dan untuk bapak Kartono dimasukkan dalam penjara selama 50 tahun. Untuk departemen keuangan akan dilakukan penyelidikan lebih lanjut untuk mencari akar dari permasalahan ini."
         
@@ -1319,18 +1322,194 @@ label ending:
         "Pajak sudah tersalurkan dengan benar dan kita bisa melihat pembangunan kota ini, sudah banyak gedung baru, bahkan ada pusat perbelanjaan baru sekarang bernama London Van Java."
         "Tetapi sudah lama aku tidak mendengar dari Amanda setelah kejadian itu{cps=5}..{cps=40} Semoga dia tidak apa-apa. Tapi sekarang semuanya sudah lebih bagus{cps=4}..."
 
-        scene bg kota with dissolve
-
-        centered "{size=+10}{cps=4}THE END\nGOOD ENDING"
-
-        pause(2)
+        centered "{size=+20}{cps=10}{b}THE END\nZERO CORRUPTION ENDING{/b}"
 
         jump credit
 
+    elif ((badclue1 or badclue2) and goodclueact2):
+        joko "Saya telah menemukan beberapa bukti untuk penggelapan pajak yang telah dilakukan oleh bapak"
+        joko "Saya harus mengakui bahwa saya memang melanggar beberapa aturan dengan secara illegal masuk ke gedung perusahaan metecom,"
+        joko "tetapi saya rela menerima hukumannya demi memperlihatkan kebenaran tentang kota ini."
+        joko "Pertama."
 
+        scene bg badclue1 with dissolve
+
+        joko "Saya merekam perbincangan antara bapak CEO dengan pria yang merupakan perwakilan dari departemen keuangan yang memegak PAJAK KITA!!!"
+
+        scene bg hakim 
+        show hakim_cropped at center 
+        with dissolve
+
+        show usb at left with dissolve
+
+        joko "Saya juga mendapatkan database dengan data yang menunjukkan bahwa pria yang berkaitan tersebut merupakan seseorang dari departemen keuangan"
+        joko "dan diluar itu saya mendapatkan bukti lain yang menunjukkan keseluruhan data keuangan dengan fakta asli bahwa perusahaan METECOM berkaitan dengan hilangnya pajak kota ini."
+
+        hide usb with dissolve
+
+        hakim "Baik, ini merupakan bukti yang menarik, sayangnya untuk rekaman kami tidak bisa melihat secara langsung dan hanya mendapatkan suara, untuk database ini merupakan data yang menarik."
+        hakim "Kami sudah menyelidiki bukti ini dan memang sudah terverifikasi bahwa perusahaan metecom berasosiasi dengan departemen keuangan, tetapi sayangnya kami hanya bisa membuktikan bahwa bapak Abdul, CEO {b}Metecom{/b}, berkaitan dengan hal ini."
+
+        scene bg ceo
+        show ceo-sombong at center
+        with dissolve
+
+        ceo "{cps=5}..."
+
+        scene bg hakim 
+        show hakim_cropped at center 
+        with dissolve
+
+        hakim "Saya memutuskan untuk Bapak Abdul dimasukkan dalam penjara selama 70 tahun dan untuk bapak Kartono kami tidak bisa melakukan apa-apa terlebih dahulu dan memerlukan bukti lebih lanjut. Departemen keuangan akan kami lakukan penyelidikan lebih lanjut."
+        
+        play sound "hammer.mp3"
+
+        stop music fadeout 1.0
+
+        scene bg blackout with Dissolve(1)
+
+        scene bg beberapatahun with Dissolve(1)
+
+        pause(2)
+
+        play music "<from 22.0 to 94.0>trailer.mp3" fadein 2.0 volume 0.3 
+
+        scene bg pajk with Dissolve(2.0)
+
+        joko "Setelah kejadian dulu, CEO {b}Metecom{/b} berhasil ditangkap."
+        joko "Akan tetapi, departemen keuangan masih tetap berrtindak curang terhadap pajak kami."
+        joko "Masih ada yang harus diselidiki mengenai departemen keuangan kota ini."
+        joko "Aku harus menemukan clue selanjutnya untuk mengakhiri ini!"
+
+        centered "{size=+20}{cps=10}{b}THE END\nUNSOLVED CORRUPTION ENDING{/b}"
+
+        jump credit
+
+    elif ((goodclue1 or goodclue2) and badclueact2):
+        joko "Saya telah menemukan beberapa bukti untuk penggelapan pajak yang telah dilakukan oleh bapak"
+        joko "Saya harus mengakui bahwa saya memang melanggar beberapa aturan dengan secara illegal masuk ke gedung perusahaan metecom,"
+        joko "tetapi saya rela menerima hukumannya demi memperlihatkan kebenaran tentang kota ini."
+        joko "Pertama."
+
+        scene bg goodclue1 with dissolve
+
+        joko "Saya merekam perbincangan antara bapak CEO dengan pria yang merupakan perwakilan dari departemen keuangan yang memegak PAJAK KITA!!!"
+
+        scene bg hakim 
+        show hakim_cropped at center 
+        with dissolve
+
+        joko "Saya juga mendapatkan database dengan data yang menunjukkan bahwa pria yang berkaitan tersebut merupakan seseorang dari departemen keuangan."
+
+        hakim "Baik, ini merupakan bukti yang menarik, sayangnya bukti ini masih kurang untuk membuktikan penggelapan pajak, tetapi kami sudah mencoba menyelidikinya dan memang ada kaitan antara departemen keuangan dengan perusahaan {b}Metecom{/b}."
+        hakim "Akan tetapi, kami tidak bisa menemukan bukti yang berkaitan dengan pajak."
+
+        scene bg ceo
+        show ceo-sombong at center
+        with dissolve
+
+        ceo "Benar pak, semua ini hanya hubungan ekonomi saja, perbincangan itu sudah diedit kami tidak ada berbincang seperti itu."
+
+        scene bg hakim 
+        show hakim_cropped at center 
+        with dissolve
+
+        hakim "Maaf pak, kami masih harus menjalankan penyelidikan pada perusahaan bapak dan juga untuk departemen keuangan."
+        hakim "Oleh karena itu saya memutuskan kasus ini belum terpecahkan dan dilanjutkan penyelidikan lebih lanjut."
+        
+        play sound "hammer.mp3"
+
+        stop music fadeout 1.0
+
+        scene bg blackout with Dissolve(1)
+
+        scene bg beberapatahun with Dissolve(1)
+
+        pause(2)
+
+        play music "<from 22.0 to 94.0>trailer.mp3" fadein 2.0 volume 0.3 
+
+        scene bg pajk with Dissolve(2.0)
+
+        joko "Setelah kejadian dulu, CEO {b}Metecom{/b} dan departemen keuangan masih bertindak curang terhadap pajak kami."
+        joko "Kota ini masih tidak berubah{cps=5}..."
+        joko "Saya harus menemukan bukti lain."
+        joko "Hanya saya yang bisa melakukan ini."
+
+        centered "{size=+20}{cps=10}{b}THE END\nUNSOLVED MYSTERY ENDING{/b}"
+
+        jump credit
+
+    elif ((badclue1 or badclue2) and badclueact2):
+        joko "Saya telah menemukan beberapa bukti untuk penggelapan pajak yang telah dilakukan oleh bapak"
+        joko "Saya harus mengakui bahwa saya memang melanggar beberapa aturan dengan secara illegal masuk ke gedung perusahaan metecom,"
+        joko "tetapi saya rela menerima hukumannya demi memperlihatkan kebenaran tentang kota ini."
+        joko "Pertama."
+
+        scene bg badclue1 with dissolve
+
+        joko "Saya merekam perbincangan antara bapak CEO dengan pria yang merupakan perwakilan dari departemen keuangan yang memegak PAJAK KITA!!!"
+
+        scene bg hakim 
+        show hakim_cropped at center 
+        with dissolve
+
+        show usb at left with dissolve
+
+        joko "Saya juga mendapatkan database dengan data yang menunjukkan bahwa pria yang berkaitan tersebut merupakan seseorang dari departemen keuangan."
+
+        hide usb with dissolve
+
+        hakim "Baik, ini merupakan bukti yang menarik."
+        hakim "Sayangnya semua bukti ini tidak membuktikan apa-apa."
+        hakim "Kami hanya bisa melihat kalau memang ada seseorang dari departemen keuangan yang masuk ke perusahaan. "
+        hakim "Pada rekaman yang diterima, kami hanya bisa mendengarkannya saja tanpa ada visual yang jelas sehingga kami tidak bisa menerima bukti ini."
+        
+        scene bg ceo
+        show ceo-sombong at center
+        with dissolve
+
+        ceo "Benar pak, semua ini bukti palsu, pemuda itu terbukti masuk ke perusahaan saya pak tanpa ijin. {color=#ff0000}{b}PENJARAKAN DIA!!!{/b}{/color}"
+       
+        scene bg hakim 
+        show hakim_cropped at center 
+        with dissolve
+       
+        hakim "Maaf pak, bapak harus tenang dalam ruangan sidang."
+        hakim "Tapi benar, Anda Joko terbukti masuk ke gedung perusahaan tanpa ijin dan mencuri database perusahaan secara ilegal."
+        hakim "Kami hanya bisa melihat kalau memang ada seseorang dari departemen keuangan yang masuk ke perusahaan. "
+        hakim "Oleh karena itu, saya putuskan atas tersangka Joko dihukum penjara selama 10 tahun !!"
+        joko "{size=+50}{cps=3}T-{cps=40}TIDAK!!!"
+        
+        play sound "hammer.mp3"
+
+        stop music fadeout 1.0
+
+        scene bg blackout with Dissolve(1)
+
+        scene bg beberapatahun with Dissolve(1)
+
+        pause(2)
+
+        play music "sad.mp3" fadein 2.0 volume 0.6
+
+        scene bg penjara2 with Dissolve(2.0)
+
+        joko "Aku sudah mencoba{cps=4}..."
+        joko "Aku benar-benar mencoba{cps=4}..."
+        joko "Kenapa{cps=4}..."
+        joko "Kenapa semuanya jadi begini{cps=4}..."
+        joko "Kota ini sudah tidak terselamatkan{cps=4}... "
+        joko "Kasus korupsi{cps=4}... {cps=40}Penggelapan pajak{cps=4}..."
+        joko "Semuanya makin bertambah..."
+        joko "Sudah{cps=4}... {cps=40}Aku sudah capek dengan kota ini." 
+
+        centered "{size=+20}{cps=10}{b}THE END\nFALSELY ACCUSED ENDING{/b}"
+
+        jump credit
 
 label credit:
-    scene bg blackout with Dissolve(1)
+    scene bg blackout with Dissolve(2.0)
     centered "{cps=150}Project Manager\nWillliam Anthony | 13223048 | Teknik Elektro | @wlmoi"
     centered "{cps=150}Game Designer\nJonathan Otto | 18323017 | Teknik Biomedis | @jonathanotto_\nJoenathan Luther Sihotang | 13223022 | Teknik Elektro | @joe.luther1311"
     centered "{cps=150}Script Writer/Story Developer\nJerry Alexander Tjoa | 18323026 | Teknik Biomedis | @jerrytjoa\nRaehan Fitrozikre | 132230014 | Teknik Elektro | @raehanfz"
@@ -1348,9 +1527,3 @@ label credit:
     scene bg blackout
     with Dissolve(2.0)
     return
-
-
-
-
-
-
