@@ -877,7 +877,7 @@ label bridging_2:
         joko "Ini adalah rekaman video percakapan antara CEO dan seseorang yang tidak dikenal."
         amanda "Hmm.... Aku juga tidak mengenalnya..."
         amanda "Akan tetapi dari percakapannya, aku juga tidak mengerti tentang pengorbanan yang mereka maksud itu."
-        joko "Hmm baiklah, mungkin jika kita tahu identitas orang itu, kita akan mendapatkan pentunjuk baru tentang kasus ini."
+        joko "Hmm baiklah, mungkin jika kita tahu identitas orang itu, kita akan mendapatkan petunjuk baru tentang kasus ini."
         joko "Tapi, kira-kira bagaimana yah caranya..."
         jump converge_bridge
     if badclue1 or badclue2:
@@ -1212,7 +1212,7 @@ label bridge_ending:
     joko "Pak polisi, bapak boleh borgol saya. Saya juga tidak akan lari. Akan tetapi, saya harus menunjukkan sesuatu kepada bapak"
     polisi "Baiklah."
     "Joko menunjukkan data-data yang sudah diambil dari database perusahaan."
-    "Polisi menganggukan kepalanya dan menghampiri CEO perusahan"
+    "Polisi menganggukan kepalanya dan menghampiri CEO perusahaan"
 
     hide akuntan
     hide polisi_cropped_2
