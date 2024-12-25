@@ -573,7 +573,7 @@ label choicemasuk_jendela:
         "Aduduh, kepalaku kejedot.."
         "Hmm, aku mendengar seseorang.."
 
-        unk "Jadi bagaimana pak? Apakah kita jadi ketemu?"
+        unk "Jadi, apakah kita jadi bertemu, Pak?"
         unk "Ohh, baik pak. Lantai 14 kan ruangan bapak?"
         unk "Saya segera ke sana."
         jump jendelaconvergent
@@ -583,7 +583,7 @@ label choicemasuk_jendela:
         "Aduduh, tanganku kegores.."
         "Hmm, aku mendengar seseorang.."
 
-        unk "Jadi bagaimana pak? Apakah kita jadi ketemu?"
+        unk "Jadi, apakah kita jadi bertemu, Pak?"
         unk "Ohh, baik pak. Lantai 14 kan ruangan bapak?"
         unk "Saya segera ke sana."
         jump jendelaconvergent
