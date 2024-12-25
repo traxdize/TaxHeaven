@@ -1286,7 +1286,7 @@ label ending:
 
         hide usb with dissolve
 
-        hakim "Baik, ini merupakan bukti yang sangat kuat.. Kami sudah melakukan penyelidikan lebih lanjut lagi kepada perusahaan {b}Metecom{/b} dan juga departemen keuangan dan iya sudah terbukti bahwa bapak Abdul, CEO {b}Metecom{/b}, melakukan kegiatan penggelapan pajak."
+        hakim "{size=-5}Baik, ini merupakan bukti yang sangat kuat.. Kami sudah melakukan penyelidikan lebih lanjut lagi kepada perusahaan {b}Metecom{/b} dan juga departemen keuangan dan iya sudah terbukti bahwa bapak Abdul, CEO {b}Metecom{/b}, melakukan kegiatan penggelapan pajak.{/size}"
 
         ceo "TIDAK SAYA MENOLAK ITU!"
 
@@ -1301,7 +1301,7 @@ label ending:
         with dissolve
         
         hakim "Maaf pak, ini semua merupakan bukti yang sudah terverifikasi dan sayangnya bapak terbukti bersalah."
-        hakim "Saya memutuskan untuk Bapak Abdul dimasukkan dalam penjara selama 70 tahun dan untuk bapak Kartono dimasukkan dalam penjara selama 50 tahun. Untuk departemen keuangan akan dilakukan penyelidikan lebih lanjut untuk mencari akar dari permasalahan ini."
+        hakim "{size=-5}Saya memutuskan untuk Bapak Abdul dimasukkan dalam penjara selama 70 tahun dan untuk bapak Kartono dimasukkan dalam penjara selama 50 tahun. Untuk departemen keuangan akan dilakukan penyelidikan lebih lanjut untuk mencari akar dari permasalahan ini.{/size}"
         
         play sound "hammer.mp3"
 
@@ -1348,7 +1348,7 @@ label ending:
         hide usb with dissolve
 
         hakim "Baik, ini merupakan bukti yang menarik, sayangnya untuk rekaman kami tidak bisa melihat secara langsung dan hanya mendapatkan suara, untuk database ini merupakan data yang menarik."
-        hakim "Kami sudah menyelidiki bukti ini dan memang sudah terverifikasi bahwa perusahaan metecom berasosiasi dengan departemen keuangan, tetapi sayangnya kami hanya bisa membuktikan bahwa bapak Abdul, CEO {b}Metecom{/b}, berkaitan dengan hal ini."
+        hakim "{size=-5}Kami sudah menyelidiki bukti ini dan memang sudah terverifikasi bahwa perusahaan metecom berasosiasi dengan departemen keuangan, tetapi sayangnya kami hanya bisa membuktikan bahwa bapak Abdul, CEO {b}Metecom{/b}, berkaitan dengan hal ini.{/size}"
 
         scene bg ceo
         show ceo-sombong at center
@@ -1360,7 +1360,7 @@ label ending:
         show hakim_cropped at center 
         with dissolve
 
-        hakim "Saya memutuskan untuk Bapak Abdul dimasukkan dalam penjara selama 70 tahun dan untuk bapak Kartono kami tidak bisa melakukan apa-apa terlebih dahulu dan memerlukan bukti lebih lanjut. Departemen keuangan akan kami lakukan penyelidikan lebih lanjut."
+        hakim "{size=-5}Saya memutuskan untuk Bapak Abdul dimasukkan dalam penjara selama 70 tahun dan untuk bapak Kartono kami tidak bisa melakukan apa-apa terlebih dahulu dan memerlukan bukti lebih lanjut. Departemen keuangan akan kami lakukan penyelidikan lebih lanjut.{/size}"
         
         play sound "hammer.mp3"
 
@@ -1401,7 +1401,7 @@ label ending:
 
         joko "Saya juga mendapatkan database dengan data yang menunjukkan bahwa pria yang berkaitan tersebut merupakan seseorang dari departemen keuangan."
 
-        hakim "Baik, ini merupakan bukti yang menarik, sayangnya bukti ini masih kurang untuk membuktikan penggelapan pajak, tetapi kami sudah mencoba menyelidikinya dan memang ada kaitan antara departemen keuangan dengan perusahaan {b}Metecom{/b}."
+        hakim "{size=-5}Baik, ini merupakan bukti yang menarik, sayangnya bukti ini masih kurang untuk membuktikan penggelapan pajak, tetapi kami sudah mencoba menyelidikinya dan memang ada kaitan antara departemen keuangan dengan perusahaan {b}Metecom{/b}.{/size}"
         hakim "Akan tetapi, kami tidak bisa menemukan bukti yang berkaitan dengan pajak."
 
         scene bg ceo
