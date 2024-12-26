@@ -1,8 +1,8 @@
 # Tugas Besar PKWN 2024
 
 Releases :<br>
-Android: [Download](https://drive.google.com/file/d/1bKVGoWgAJ41cHuxChipMyjienESb8_hX/view?usp=sharing)<br>
+Android: [Download](https://drive.google.com/file/d/15ht9Hx4hJUbxuKEFNxJuvEnBzlH6tLfq/view?usp=sharing)<br>
 
-Windows: [Download](https://drive.google.com/file/d/1SCP1W-gTbhIQX13qo6QRyYf-Lu-MJwmG/view?usp=sharing)
+Windows: [Download](https://drive.google.com/file/d/1wqqntiG8a5iyrUHkMGpU7kQfgNG_i1V5/view?usp=sharing)
 
-Mac    : [Download](https://drive.google.com/file/d/1KVHPFAHQJfQLvvef44Qb_a6-ZqxSynHz/view?usp=sharing)
+Mac    : [Download](https://drive.google.com/file/d/1KsZKhg4_PE24Ig_Q9ibxBkoYEM8m4i8R/view?usp=sharing)
